@@ -1,1 +1,32 @@
-<p>header works!</p>
+<header>
+    <!-- Navigation -->
+    <h1><a class="home" href="./index.html">Tech-news</a></h1>
+    <nav>
+      <ul>
+        <!-- When is logged -->
+        <li><a routerLink="/allNews">All news</a></li>
+        <li><a routerLink="/addNews">Add new</a></li>
+  
+        <div >
+          <li><a >Logout</a></li>
+          <li>
+            <a >'s Profile</a>
+          </li>
+        </div>
+  
+        <!-- When is guest -->
+        <div >
+          <ul>
+        <li><a routerLink="/auth/login">Login</a></li>
+        <li><a routerLink="/auth/register">Register</a></li>
+      </ul>
+      </div>
+  
+  
+        <!-- All The time -->
+        <li><a routerLink="/about">About-us</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  

@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+    
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: inherit; */
+    line-height: 1;
+  }
+  
+  body {
+    background-image: url('./assets/Tech_Trends.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+  
+    /* position: relative; */
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
