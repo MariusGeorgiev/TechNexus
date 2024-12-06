@@ -7,6 +7,7 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
 import { AboutUsComponent } from './about-us/about-us.component';  
 import { ContactComponent } from './contact/contact.component';  
 import { NotFound404Component } from './not-found-404/not-found-404.component';
+import { AddNewComponent } from './add-new/add-new.component';
 
 
 const routes: Routes = [
@@ -14,9 +15,10 @@ const routes: Routes = [
   { path: 'all-news', component: AllNewsComponent },
   // { path: 'hardware', component: HardwareComponent },
   // { path: 'software', component: SoftwareComponent },
+  { path: 'add-new', component: AddNewComponent },
   { path: 'news/:id', component: DetailsArticleComponent },
   { path: 'edit/:id', component: EditArticleComponent },
-  { path: 'about', component: AboutUsComponent },  // 
+  { path: 'about', component: AboutUsComponent },  
   { path: 'contact', component: ContactComponent },  
   { path: '**', component: NotFound404Component },  
 ];
