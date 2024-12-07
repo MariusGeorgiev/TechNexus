@@ -1,28 +1,44 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-add-new',
   templateUrl: './add-new.component.html',
   styleUrls: ['./add-new.component.css']
 })
-export class AddNewComponent{
+export class AddNewComponent {
   createForm: FormGroup;
   selectedImageUrl: string | null = null;
-  currentDate: string; // Current date string in YYYY-MM-DD format
+  //currentDateTime: string; // "YYYY-MM-DDTHH:mm"
 
   constructor(private fb: FormBuilder) {
-    const now = new Date();
-    this.currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD format
+    // this.currentDateTime = this.formatDateTime(new Date());
+
     this.createForm = this.fb.group({
       title: ['', [Validators.required]],
       category: ['', [Validators.required]],
-      date: [this.currentDate, [Validators.required]], // Autofill current date
+      // date: [this.currentDateTime, [Validators.required]],
       summary: ['', [Validators.required, Validators.minLength(10)]],
       imageFile: [null, [Validators.required]]
     });
+
+    // Init Firebase
+    const app = initializeApp(environment.firebaseConfig);
   }
+
+  // Function to format date as "YYYY-MM-DDTHH:mm" (for datetime-local input)
+  // formatDateTime(date: Date): string {
+  //   const year = date.getFullYear();
+  //   const month = String(date.getMonth() + 1).padStart(2, '0'); // Ensure 2 digits
+  //   const day = String(date.getDate()).padStart(2, '0');
+  //   const hours = String(date.getHours()).padStart(2, '0');
+  //   const minutes = String(date.getMinutes()).padStart(2, '0');
+  //   return `${year}-${month}-${day}T${hours}:${minutes}`;
+  // }
 
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
@@ -41,15 +57,51 @@ export class AddNewComponent{
 
   onSubmit(): void {
     if (this.createForm.valid) {
-      const formData = new FormData();
-      formData.append('title', this.createForm.get('title')?.value);
-      formData.append('category', this.createForm.get('category')?.value);
-      formData.append('date', this.createForm.get('date')?.value);
-      formData.append('summary', this.createForm.get('summary')?.value);
-      formData.append('imageFile', this.createForm.get('imageFile')?.value);
+      const formData = this.createForm.value;
+      const imageFile = formData.imageFile;
 
-      console.log('Form Data:', formData);
-      // You can now send the formData to the backend
+      // Step 1: Upload the image to Firebase Storage
+      const storage = getStorage();
+      const storageRef = ref(storage, 'images/' + imageFile.name);
+      const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+      uploadTask.on(
+        'state_changed',
+        null,
+        (error) => console.error('Error uploading file:', error),
+        async () => {
+          // Step 2: Get download URL and save data to Firestore
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          const firestore = getFirestore();
+          const articlesRef = collection(firestore, 'articles');
+
+           // Generate the current date and time in local timezone
+           const now = new Date();
+           const year = now.getFullYear();
+           const month = String(now.getMonth() + 1).padStart(2, '0');
+           const day = String(now.getDate()).padStart(2, '0');
+           const hours = String(now.getHours()).padStart(2, '0'); // Local hours
+           const minutes = String(now.getMinutes()).padStart(2, '0');
+           const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+          // Automatically add current date and time in ISO format
+          //const currentDateTime = new Date().toISOString();
+
+          addDoc(articlesRef, {
+            title: formData.title,
+            category: formData.category,
+            date: currentDateTime,
+            summary: formData.summary,
+            imageUrl: downloadURL
+          })
+            .then((docRef) => {
+              console.log('Document written with ID:', docRef.id);
+            })
+            .catch((error) => {
+              console.error('Error adding document:', error);
+            });
+        }
+      );
     } else {
       console.log('Form is invalid.');
     }

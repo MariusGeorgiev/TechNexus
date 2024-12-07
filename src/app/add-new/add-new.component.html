@@ -1,81 +1,83 @@
 <div class="create-page">
-    <!-- Create Page (Only for logged-in users) -->
-    <section id="create-page" class="auth">
-      <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-        <div class="container">
-          <h1>Create New</h1>
-  
-          <!-- Title -->
-          <label for="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            formControlName="title"
-            placeholder="Enter article title"
-            required
-          />
-          <div *ngIf="createForm.get('title')?.touched && createForm.get('title')?.invalid" class="error">
-            Title is required.
-          </div>
-  
-          <!-- Category -->
-          <div class="category">
-            <label for="category">Category:</label>
-            <select formControlName="category" id="category" required>
-              <option value="">Select a category</option>
-              <option value="Hardware">Hardware</option>
-              <option value="Software">Software</option>
-              <option value="Science">Science</option>
-            </select>
-            <div *ngIf="createForm.get('category')?.touched && createForm.get('category')?.invalid" class="error">
-              Please select a category.
-            </div>
-          </div>
-  
-          <!-- Image URL -->
-          <label for="image">Select an Image:</label>
-          <input
-            type="file"
-            id="image"
-            (change)="onFileSelected($event)"
-            accept="image/*"
-          />
-          
-          <!-- Preview the selected image -->
-          <div *ngIf="selectedImageUrl" class="image-preview">
-            <p>Image Preview:</p>
-            <img [src]="selectedImageUrl" alt="Selected Image" />
-          </div>
-  
-          <!-- Date -->
-          <label for="current-date">Date:</label>
-          <input
-            id="current-date"
-            type="date"
-            formControlName="date"
-            required
-          />
-          <div *ngIf="createForm.get('date')?.touched && createForm.get('date')?.invalid" class="error">
-            Please select a date.
-          </div>
-  
-          <!-- Article Summary -->
-          <label for="summary">Article Summary:</label>
-          <textarea
-            id="summary"
-            formControlName="summary"
-            placeholder="Write your article summary..."
-            rows="6"
-            required
-          ></textarea>
-          <div *ngIf="createForm.get('summary')?.touched && createForm.get('summary')?.invalid" class="error">
-            Summary must be at least 10 characters.
-          </div>
-  
-          <!-- Submit Button -->
-          <input class="btn submit" type="submit" value="Create New" />
+  <!-- Create Page (Only for logged-in users) -->
+  <section id="create-page" class="auth">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <h1>Create New</h1>
+
+        <!-- Title -->
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          placeholder="Enter article title"
+          required
+        />
+        <div *ngIf="createForm.get('title')?.touched && createForm.get('title')?.invalid" class="error">
+          Title is required.
         </div>
-      </form>
-    </section>
-  </div>
-  
+
+        <!-- Category -->
+        <div class="category">
+          <label for="category">Category:</label>
+          <select formControlName="category" id="category" required>
+            <option value="">Select a category</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+            <option value="Science">Science</option>
+          </select>
+          <div *ngIf="createForm.get('category')?.touched && createForm.get('category')?.invalid" class="error">
+            Please select a category.
+          </div>
+        </div>
+
+        <!-- Image URL -->
+        <label for="image">Select an Image:</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+
+        <!-- Preview the selected image -->
+        <div *ngIf="selectedImageUrl" class="image-preview">
+          <p>Image Preview:</p>
+          <img [src]="selectedImageUrl" alt="Selected Image" />
+        </div>
+
+<!-- Date and Time -->
+<!-- <label for="current-date">Date:</label>
+<input
+  id="current-date"
+  type="datetime-local"
+  formControlName="date"
+  required
+/>
+<p>Local Time: {{ createForm.get('date')?.value }}</p>
+<div *ngIf="createForm.get('date')?.touched && createForm.get('date')?.invalid" class="error">
+  Please select a date and time.
+</div> -->
+
+
+
+        <!-- Article Summary -->
+        <label for="summary">Article Summary:</label>
+        <textarea
+          id="summary"
+          formControlName="summary"
+          placeholder="Write your article summary..."
+          rows="6"
+          required
+        ></textarea>
+        <div *ngIf="createForm.get('summary')?.touched && createForm.get('summary')?.invalid" class="error">
+          Summary must be at least 10 characters.
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="createForm.invalid" class="btn submit">Create New</button>
+      </div>
+    </form>
+  </section>
+</div>
