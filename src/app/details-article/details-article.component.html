@@ -1,17 +1,12 @@
-<div *ngIf="article$ | async as article" class="article-container">
-  <h1 class="article-title">{{ article.title }}</h1>
-
-  <div class="article-meta">
-    <span>Created on: {{ article.createdOn | date:'medium' }}</span>
-    <!-- Add more metadata if necessary -->
-  </div>
-
-  <img class="article-image" [src]="article.imageUrl" alt="{{ article.title }}">
-
-  <div class="article-content">
-    <p>{{ article.content }}</p>
-    <!-- You can use the article summary or content here, depending on what you store -->
-  </div>
-
-  <a class="back-button" routerLink="/all-news">Back to All News</a>
+<div *ngIf="article$ | async as article; else loading">
+  <h1>{{ article.title }}</h1>
+  <p><strong>Created on:</strong> {{ article.date }}</p>
+  <p><strong>Category:</strong> {{ article.category }}</p>  <!-- Added category -->
+  <img [src]="article.imageUrl" alt="Article Image">
+  <p><strong>Post Content:</strong></p>
+  <p>{{ article.summary }}</p>
 </div>
+
+<ng-template #loading>
+  <p>Loading article...</p>
+</ng-template>

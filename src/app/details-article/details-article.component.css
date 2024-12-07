@@ -1,64 +1,37 @@
-/* Container for the entire article content */
-.article-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Title of the article */
-  .article-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Meta information (date and other details) */
-  .article-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 20px;
-  }
-  
-  /* Article content section */
-  .article-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-    text-align: justify;
-    margin-bottom: 30px;
-  }
-  
-  /* Image styling */
-  .article-image {
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    margin: 20px 0;
+/* Ensure the image does not exceed the container's width */
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+    max-width: 50%;
+    height: auto;
+    /* background-image: none !important; */
+    border-radius: 10px;
   }
   
-  /* Button styling to go back or navigate */
-  .back-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    text-align: center;
+  /* Add spacing around the image and content */
+  h1 {
+    margin-bottom: 15px;
   }
   
-  .back-button:hover {
-    background-color: #0056b3;
+  p {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the article container */
+  article {
+    max-width: 50%; /* Limit the width of the article content */
+    margin: 200px auto; /* Center the content */
+    padding: 200px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like effect */
+  }
+  
+  /* Add styling to category label */
+  strong {
+    font-weight: bold;
+    color: #333;
   }
   
