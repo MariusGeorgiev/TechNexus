@@ -83,7 +83,9 @@ export class AddNewComponent {
            const day = String(now.getDate()).padStart(2, '0');
            const hours = String(now.getHours()).padStart(2, '0'); // Local hours
            const minutes = String(now.getMinutes()).padStart(2, '0');
-           const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+           const currentDateTime = `${hours}:${minutes} | ${day}-${month}-${year}`;
+           
 
           // Automatically add current date and time in ISO format
           //const currentDateTime = new Date().toISOString();

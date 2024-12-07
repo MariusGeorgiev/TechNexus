@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AllNewsComponent } from './all-news/all-news.component';
-import { DetailsArticleComponent } from './/details-article/details-article.component';
+import { DetailsArticleComponent } from './details-article/details-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { AboutUsComponent } from './about-us/about-us.component';  
 import { ContactComponent } from './contact/contact.component';  
@@ -16,8 +16,8 @@ const routes: Routes = [
   // { path: 'hardware', component: HardwareComponent },
   // { path: 'software', component: SoftwareComponent },
   { path: 'add-new', component: AddNewComponent },
-  { path: 'news/:id', component: DetailsArticleComponent },
-  { path: 'edit/:id', component: EditArticleComponent },
+  { path: 'details-article/:id', component: DetailsArticleComponent },
+  { path: 'article/edit/:id', component: EditArticleComponent },
   { path: 'about', component: AboutUsComponent },  
   { path: 'contact', component: ContactComponent },  
   { path: '**', component: NotFound404Component },  
