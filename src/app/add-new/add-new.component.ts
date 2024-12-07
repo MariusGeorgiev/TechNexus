@@ -4,6 +4,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';  // Import Router
 
 @Component({
   selector: 'app-add-new',
@@ -96,6 +97,9 @@ export class AddNewComponent {
           })
             .then((docRef) => {
               console.log('Document written with ID:', docRef.id);
+              
+              // Refresh the current page after a successful document creation
+              window.location.reload(); // This reloads the current page
             })
             .catch((error) => {
               console.error('Error adding document:', error);
