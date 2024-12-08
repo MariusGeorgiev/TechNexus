@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, limit, doc, getDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,27 @@ export class ArticleService {
   getArticle(articleId: string): Observable<any> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(getDoc(articleRef).then(docSnapshot => docSnapshot.data()));
+  }
+
+  //  // Get last 3 articles
+  //  getLatestArticles(): Observable<any[]> {
+  //   const articlesRef = collection(this.firestore, 'articles');
+  //   const q = query(articlesRef, orderBy('createdAt', 'desc'), limit(3));
+  //   return from(
+  //     getDocs(q).then(snapshot => 
+  //       snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+  //     )
+  //   );
+  // }
+
+  getAllArticles(): Observable<any[]> {
+    const articlesRef = collection(this.firestore, 'articles');
+    const q = query(articlesRef, orderBy('date', 'desc'));
+    return from(
+      getDocs(q).then(snapshot =>
+        snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+      )
+    );
   }
 
   // Delete article
