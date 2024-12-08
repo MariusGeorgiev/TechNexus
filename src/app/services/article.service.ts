@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, Firestore, doc, getDoc, deleteDoc, collection } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -12,16 +12,22 @@ export class ArticleService {
 
   constructor() {}
 
-  // Method to fetch a single article by its ID
+  // Method to fetch a single article by ID
   getArticle(articleId: string): Observable<any> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(getDoc(articleRef).then(docSnapshot => docSnapshot.data()));
   }
 
-  // Delete an article
+  // Delete article
   deleteArticle(articleId: string): Observable<void> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(deleteDoc(articleRef));
+  }
+
+  // Update article
+  updateArticle(articleId: string, updatedData: any): Observable<void> {
+    const articleRef = doc(this.firestore, 'articles', articleId);
+    return from(updateDoc(articleRef, updatedData));
   }
 
 }

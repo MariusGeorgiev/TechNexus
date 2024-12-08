@@ -4,7 +4,6 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';  // Import Router
 
 @Component({
   selector: 'app-add-new',
@@ -14,15 +13,12 @@ import { Router } from '@angular/router';  // Import Router
 export class AddNewComponent {
   createForm: FormGroup;
   selectedImageUrl: string | null = null;
-  //currentDateTime: string; // "YYYY-MM-DDTHH:mm"
 
   constructor(private fb: FormBuilder) {
-    // this.currentDateTime = this.formatDateTime(new Date());
 
     this.createForm = this.fb.group({
       title: ['', [Validators.required]],
       category: ['', [Validators.required]],
-      // date: [this.currentDateTime, [Validators.required]],
       summary: ['', [Validators.required, Validators.minLength(10)]],
       imageFile: [null, [Validators.required]]
     });
@@ -30,16 +26,6 @@ export class AddNewComponent {
     // Init Firebase
     const app = initializeApp(environment.firebaseConfig);
   }
-
-  // Function to format date as "YYYY-MM-DDTHH:mm" (for datetime-local input)
-  // formatDateTime(date: Date): string {
-  //   const year = date.getFullYear();
-  //   const month = String(date.getMonth() + 1).padStart(2, '0'); // Ensure 2 digits
-  //   const day = String(date.getDate()).padStart(2, '0');
-  //   const hours = String(date.getHours()).padStart(2, '0');
-  //   const minutes = String(date.getMinutes()).padStart(2, '0');
-  //   return `${year}-${month}-${day}T${hours}:${minutes}`;
-  // }
 
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
@@ -61,7 +47,7 @@ export class AddNewComponent {
       const formData = this.createForm.value;
       const imageFile = formData.imageFile;
 
-      // Step 1: Upload the image to Firebase Storage
+      // Upload the image to Firebase Storage
       const storage = getStorage();
       const storageRef = ref(storage, 'images/' + imageFile.name);
       const uploadTask = uploadBytesResumable(storageRef, imageFile);
@@ -71,12 +57,12 @@ export class AddNewComponent {
         null,
         (error) => console.error('Error uploading file:', error),
         async () => {
-          // Step 2: Get download URL and save data to Firestore
+          // Get download URL and save data to Firestore
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           const firestore = getFirestore();
           const articlesRef = collection(firestore, 'articles');
 
-           // Generate the current date and time in local timezone
+           // Generate the current date and time
            const now = new Date();
            const year = now.getFullYear();
            const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -84,11 +70,8 @@ export class AddNewComponent {
            const hours = String(now.getHours()).padStart(2, '0'); // Local hours
            const minutes = String(now.getMinutes()).padStart(2, '0');
 
-           const currentDateTime = `${hours}:${minutes} | ${day}-${month}-${year}`;
+           const currentDateTime = `${hours}:${minutes} | ${day}.${month}.${year}`;
            
-
-          // Automatically add current date and time in ISO format
-          //const currentDateTime = new Date().toISOString();
 
           addDoc(articlesRef, {
             title: formData.title,
@@ -100,8 +83,8 @@ export class AddNewComponent {
             .then((docRef) => {
               console.log('Document written with ID:', docRef.id);
               
-              // Refresh the current page after a successful document creation
-              window.location.reload(); // This reloads the current page
+            // Refresh the current page after a successful is created the new article
+              window.location.reload();
             })
             .catch((error) => {
               console.error('Error adding document:', error);

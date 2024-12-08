@@ -1,4 +1,4 @@
-/* Ensure the image does not exceed the container's width */
+
 img {
     display: block;
     margin-left: auto;
@@ -6,11 +6,9 @@ img {
 
     max-width: 50%;
     height: auto;
-    /* background-image: none !important; */
     border-radius: 10px;
   }
   
-  /* Add spacing around the image and content */
   h1 {
     margin-bottom: 15px;
   }
@@ -18,18 +16,16 @@ img {
   p {
     margin-bottom: 10px;
   }
-  
-  /* Style for the article container */
+
   article {
-    max-width: 50%; /* Limit the width of the article content */
-    margin: 200px auto; /* Center the content */
+    max-width: 50%; 
+    margin: 200px auto; 
     padding: 200px;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
-  /* Add styling to category label */
   strong {
     font-weight: bold;
     color: #333;

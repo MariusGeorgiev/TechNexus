@@ -17,7 +17,7 @@ const routes: Routes = [
   // { path: 'software', component: SoftwareComponent },
   { path: 'add-new', component: AddNewComponent },
   { path: 'details-article/:id', component: DetailsArticleComponent },
-  { path: 'article/edit/:id', component: EditArticleComponent },
+  { path: 'edit-article/:id', component: EditArticleComponent },
   { path: 'about', component: AboutUsComponent },  
   { path: 'contact', component: ContactComponent },  
   { path: '**', component: NotFound404Component },  

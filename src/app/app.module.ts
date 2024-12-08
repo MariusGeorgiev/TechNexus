@@ -15,9 +15,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NotFound404Component } from './not-found-404/not-found-404.component';
 
-import { environment } from '../environments/environment'; // Import the environment configuration
-//import { initializeApp } from 'firebase/app'; // Firebase modular API
-//import { getFirestore } from 'firebase/firestore'; // Firestore
+//import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,13 +36,7 @@ import { environment } from '../environments/environment'; // Import the environ
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    //initializeApp(environment.firebaseConfig),
-    // You don't need 'provideFirestore' anymore
-    //getFirestore(),
-    //provideFirestore(() => getFirestore(initializeApp(environment.firebaseConfig))),
-    //AngularFireModule.initializeApp(environment.firebaseConfig), // Use the config from environment
-    //AngularFireAuthModule, // For Firebase Authentication
-    //AngularFireFirestoreModule, // For Firestore
+
   ],
   providers: [],
   bootstrap: [AppComponent]
