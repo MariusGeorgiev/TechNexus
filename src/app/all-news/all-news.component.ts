@@ -3,7 +3,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../../environments/environment';
 import { ArticleService } from '../services/article.service'; // Import the article service
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-news',
@@ -14,13 +14,15 @@ export class AllNewsComponent implements OnInit {
   
     articles: any[] = [];
   
-    constructor(private articleService: ArticleService) {}
+    constructor(private articleService: ArticleService, private router: Router) {}
   
     ngOnInit(): void {
       // Fetch all articles when the component is initialized
       this.articleService.getAllArticles().subscribe(data => {
         this.articles = data; // Store the fetched articles in the articles array
       });
+
+      
     }
   
 
@@ -38,4 +40,8 @@ export class AllNewsComponent implements OnInit {
   //     console.error('Error fetching articles: ', error);
   //   }
   // }
+
+  navigateToCategory(category: string): void {
+    this.router.navigate([`${category}-articles`]); // Navigate to category page
+  }
 }

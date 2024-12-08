@@ -1,9 +1,27 @@
 <!-- All-News page for all users and guests -->
 
+<div class="allNews-articles-container">
+  <h1>All News</h1>
+
+ <!-- Article Counter -->
+ <p *ngIf="articles.length > 0" class="article-count">
+  Total News: {{ articles.length }}
+</p>
+
+<!-- Buttons to navigate to category pages -->
+<div class="category-buttons">
+  <button (click)="navigateToCategory('hardware')">Hardware Articles</button>
+  <button (click)="navigateToCategory('software')">Software Articles</button>
+  <button (click)="navigateToCategory('science')">Science Articles</button>
+</div>
+
 <div *ngFor="let article of articles">
   <a [routerLink]="['/details-article', article.id]">
     <h2>{{ article.title }}</h2>
-    <img [src]="article.imageUrl" alt="Image for {{ article.title }}" />
+    <p>category: {{ article.category }}</p>
+    <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
     <p>{{ article.date }}</p>
   </a>
+</div>
+
 </div>

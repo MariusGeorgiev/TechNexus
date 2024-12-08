@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, collection, query, orderBy, limit, doc, getDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, where, limit, doc, getDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -32,6 +32,16 @@ export class ArticleService {
   getAllArticles(): Observable<any[]> {
     const articlesRef = collection(this.firestore, 'articles');
     const q = query(articlesRef, orderBy('date', 'desc'));
+    return from(
+      getDocs(q).then(snapshot =>
+        snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+      )
+    );
+  }
+
+  getArticlesByCategory(category: string): Observable<any[]> {
+    const articlesRef = collection(this.firestore, 'articles');
+    const q = query(articlesRef, where('category', '==', category), orderBy('date', 'desc'));
     return from(
       getDocs(q).then(snapshot =>
         snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
