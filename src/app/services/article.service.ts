@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, Firestore, doc, getDoc, deleteDoc, collection } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ArticleService {
 
   private firestore = getFirestore();
@@ -16,4 +17,11 @@ export class ArticleService {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(getDoc(articleRef).then(docSnapshot => docSnapshot.data()));
   }
+
+  // Delete an article
+  deleteArticle(articleId: string): Observable<void> {
+    const articleRef = doc(this.firestore, 'articles', articleId);
+    return from(deleteDoc(articleRef));
+  }
+
 }

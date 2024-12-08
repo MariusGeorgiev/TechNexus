@@ -1,10 +1,17 @@
 <div *ngIf="article$ | async as article; else loading">
+
   <h1>{{ article.title }}</h1>
   <p><strong>Created on:</strong> {{ article.date }}</p>
   <p><strong>Category:</strong> {{ article.category }}</p>  <!-- Added category -->
   <img [src]="article.imageUrl" alt="Article Image">
   <p><strong>Post Content:</strong></p>
   <p>{{ article.summary }}</p>
+  
+  <div style="margin-top: 20px;">
+    <button (click)="editArticle()">Edit</button>
+    <button (click)="deleteArticle()" style="margin-left: 10px; color: red;">Delete</button>
+  </div>
+
 </div>
 
 <ng-template #loading>
