@@ -14,7 +14,7 @@ export class ScienceArticlesComponent implements OnInit {
   ngOnInit(): void {
     // Fetch all articles when the component is initialized
     this.articleService.getAllArticles().subscribe(data => {
-      // Filter articles to include only hardware
+      // Filter articles to include only science
       this.articles = data.filter(article => article.category === 'Science');
     });
   }

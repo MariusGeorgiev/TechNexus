@@ -12,23 +12,13 @@ export class ArticleService {
 
   constructor() {}
 
-  // Method to fetch a single article by ID
+  // Get Article by ID
   getArticle(articleId: string): Observable<any> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(getDoc(articleRef).then(docSnapshot => docSnapshot.data()));
   }
 
-  //  // Get last 3 articles
-  //  getLatestArticles(): Observable<any[]> {
-  //   const articlesRef = collection(this.firestore, 'articles');
-  //   const q = query(articlesRef, orderBy('createdAt', 'desc'), limit(3));
-  //   return from(
-  //     getDocs(q).then(snapshot => 
-  //       snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  //     )
-  //   );
-  // }
-
+  // Get All Articles
   getAllArticles(): Observable<any[]> {
     const articlesRef = collection(this.firestore, 'articles');
     const q = query(articlesRef, orderBy('date', 'desc'));
@@ -39,23 +29,13 @@ export class ArticleService {
     );
   }
 
-  getArticlesByCategory(category: string): Observable<any[]> {
-    const articlesRef = collection(this.firestore, 'articles');
-    const q = query(articlesRef, where('category', '==', category), orderBy('date', 'desc'));
-    return from(
-      getDocs(q).then(snapshot =>
-        snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-      )
-    );
-  }
-
-  // Delete article
+  // Delete Article
   deleteArticle(articleId: string): Observable<void> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(deleteDoc(articleRef));
   }
 
-  // Update article
+  // Update Article
   updateArticle(articleId: string, updatedData: any): Observable<void> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(updateDoc(articleRef, updatedData));

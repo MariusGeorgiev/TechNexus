@@ -39,7 +39,6 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-   /* padding: 1em 0 1em 0; */
    border-radius: 10px;
     background-color: rgb(215, 11, 8);
 }

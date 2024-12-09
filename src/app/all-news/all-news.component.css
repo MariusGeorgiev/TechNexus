@@ -1,13 +1,11 @@
-/* General container styling */
 .allNews-articles-container {
   padding: 20px;
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center; /* Center align the content */
+  text-align: center; 
 }
 
-/* Page title */
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -15,17 +13,15 @@ h1 {
   color: #333;
 }
 
-/* Articles list container */
 .articles-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Center articles horizontally */
+  justify-content: center; 
 }
 
-/* Single article card styling */
 .article-card {
-  width: 250px; /* Adjust the width for smaller cards */
+  width: 250px; 
   border: 1px solid #ddd;
   border-radius: 5px;
   overflow: hidden;
@@ -39,23 +35,20 @@ h1 {
   transform: translateY(-5px);
 }
 
-/* Link styling for the article */
 .article-link {
   text-decoration: none;
   color: black;
   display: block;
 }
 
-/* Image inside the article */
 .article-image {
-  width: 100%;        /* Ensures the image scales with the screen width */
-  max-width: 600px;   /* Limits the maximum size of the image */
-  height: 300px;      /* Adjusts the image height */
-  object-fit: cover;  /* Ensures the image covers the area without distortion */
+  width: 100%;        
+  max-width: 600px;   
+  height: 300px;     
+  object-fit: cover;  
 }
 
 
-/* Article title */
 .article-title {
   font-size: 1.1em;
   margin: 10px 0;
@@ -63,7 +56,6 @@ h1 {
   text-align: center;
 }
 
-/* Article date styling */
 .article-date {
   font-size: 0.9em;
   color: #777;
@@ -71,7 +63,6 @@ h1 {
   text-align: center;
 }
 
-/* No articles message */
 .no-articles {
   text-align: center;
   font-size: 1.2em;

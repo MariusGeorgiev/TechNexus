@@ -9,7 +9,7 @@
   
     <!-- Articles List -->
     <div *ngIf="articles.length > 0; else noArticles">
-      <div *ngFor="let article of articles"> <!-- Add *ngFor to loop through articles -->
+      <div *ngFor="let article of articles"> 
         <a [routerLink]="['/details-article', article.id]">
           <h2>{{ article.title }}</h2>
           <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image"/>

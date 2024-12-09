@@ -13,33 +13,24 @@ import { Router } from '@angular/router';
 export class AllNewsComponent implements OnInit {
   
     articles: any[] = [];
+    loading: boolean = true;
   
     constructor(private articleService: ArticleService, private router: Router) {}
   
     ngOnInit(): void {
-      // Fetch all articles when the component is initialized
-      this.articleService.getAllArticles().subscribe(data => {
-        this.articles = data; // Store the fetched articles in the articles array
+      // Fetch all articles
+      this.articleService.getAllArticles().subscribe({
+        next: (data) => {
+          this.articles = data; 
+          this.loading = false; 
+        },
+        error: (err) => {
+          console.error('Error fetching articles:', err);
+          this.loading = false; 
+        }
       });
-
-      
     }
   
-
-  // async fetchArticles() {
-  //   try {
-  //     const firestore = getFirestore();
-  //     const articlesRef = collection(firestore, 'articles');
-  //     const querySnapshot = await getDocs(articlesRef);
-
-  //     this.articles = querySnapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       ...doc.data()
-  //     }));
-  //   } catch (error) {
-  //     console.error('Error fetching articles: ', error);
-  //   }
-  // }
 
   navigateToCategory(category: string): void {
     this.router.navigate([`${category}-articles`]); // Navigate to category page
