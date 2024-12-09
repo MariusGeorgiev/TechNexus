@@ -21,7 +21,7 @@ export class ArticleService {
   // Get All Articles
   getAllArticles(): Observable<any[]> {
     const articlesRef = collection(this.firestore, 'articles');
-    const q = query(articlesRef, orderBy('date', 'desc'));
+    const q = query(articlesRef, orderBy('date', 'desc'), orderBy('time', 'desc'));
     return from(
       getDocs(q).then(snapshot =>
         snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))

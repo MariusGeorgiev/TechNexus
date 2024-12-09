@@ -13,6 +13,7 @@ import { environment } from '../../environments/environment';
 export class AddNewComponent {
   createForm: FormGroup;
   selectedImageUrl: string | null = null;
+  loading: boolean = false; // State for showing loader
 
   constructor(private fb: FormBuilder) {
 
@@ -44,6 +45,7 @@ export class AddNewComponent {
 
   onSubmit(): void {
     if (this.createForm.valid) {
+      this.loading = true; // Start loader
       const formData = this.createForm.value;
       const imageFile = formData.imageFile;
 
@@ -55,7 +57,10 @@ export class AddNewComponent {
       uploadTask.on(
         'state_changed',
         null,
-        (error) => console.error('Error uploading file:', error),
+        (error) => { 
+          console.error('Error uploading file:', error);
+          this.loading = false; // Stop loader on error
+        },
         async () => {
           // Get download URL and save data to Firestore
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
@@ -71,24 +76,27 @@ export class AddNewComponent {
            const minutes = String(now.getMinutes()).padStart(2, '0');
            const seconds = String(now.getSeconds()).padStart(2, '0');
 
-           const currentDateTime = `${hours}:${minutes}:${seconds} | ${day}.${month}.${year}`;
+           const currentDate = `${day}.${month}.${year}`
+           const currentTime = `${hours}:${minutes}:${seconds}`;
            
 
           addDoc(articlesRef, {
             title: formData.title,
             category: formData.category,
-            date: currentDateTime,
+            date: currentDate,
+            time: currentTime,
             summary: formData.summary,
             imageUrl: downloadURL
           })
             .then((docRef) => {
               console.log('Document written with ID:', docRef.id);
-              
+              this.loading = false; // Stop loader on success
             // Refresh the current page after a successful is created the new article
               window.location.reload();
             })
             .catch((error) => {
               console.error('Error adding document:', error);
+              this.loading = false; // Stop loader on error
             });
         }
       );

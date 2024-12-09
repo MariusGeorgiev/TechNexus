@@ -13,7 +13,7 @@
       <a [routerLink]="['/details-article', article.id]">
         <h2>{{ article.title }}</h2>
         <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image"/>
-        <p>{{ article.date }}</p>
+        <p>{{ article.time }} | {{ article.date }}</p>
       </a>
     </div>
   </div>

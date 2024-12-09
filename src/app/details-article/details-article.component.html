@@ -2,7 +2,7 @@
 
     <!-- Details page for users and guests -->
   <h1>{{ article.title }}</h1>
-  <p><strong>Created on:</strong> {{ article.date }}</p>
+  <p><strong>Created on:</strong> {{ article.time }} | {{ article.date }}</p>
   <p><strong>Category:</strong> {{ article.category }}</p> 
   <img [src]="article.imageUrl" alt="Article Image">
   <p><strong>Post Content:</strong></p>
