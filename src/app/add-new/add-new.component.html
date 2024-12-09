@@ -1,3 +1,8 @@
+<div *ngIf="loading; else content">
+  <app-loader></app-loader>
+</div>
+
+<ng-template #content>
 <div class="create-page">
   <!-- Create Page (Only for logged-in users) -->
   <section id="create-page" class="auth">
@@ -62,3 +67,4 @@
     </form>
   </section>
 </div>
+</ng-template>
