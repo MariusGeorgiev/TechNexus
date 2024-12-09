@@ -1,4 +1,3 @@
-<!-- Home Page -->
 <section id="section-one">
   <div class="welcome-message">
     <h2>Only in our website</h2>
@@ -9,7 +8,6 @@
     <h1>Latest News</h1>
 
     <div id="latest-news">
-      <!-- Loop through the first 3 articles -->
       <div *ngFor="let article of articles" class="new">
         <div class="title">
           <a [routerLink]="['/details-article', article.id]">{{ article.title }}</a>
@@ -24,7 +22,6 @@
         </div>
       </div>
 
-      <!-- If there are no articles -->
       <p *ngIf="articles.length === 0" class="no-articles">No news yet</p>
     </div>
   </div>

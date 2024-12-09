@@ -1,32 +1,36 @@
 <header>
-    <!-- Navigation -->
-    <h1><a class="home" href="./index.html">Tech-news</a></h1>
-    <nav>
-      <ul>
-        <!-- When is logged -->
-        <li><a routerLink="/all-news">All news</a></li>
-        <li><a routerLink="/add-new">Add new</a></li>
-  
-        <div >
-          <li><a >Logout</a></li>
-          <li>
-            <a >'s Profile</a>
-          </li>
-        </div>
-  
-        <!-- When is guest -->
-        <div >
-          <ul>
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
-      </ul>
+  <h1><a class="home" routerLink="/">Tech-news</a></h1>
+  <nav>
+    <ul>
+
+      <!-- Visible all the time -->
+      <li><a routerLink="/all-news">All news</a></li>
+
+      <!-- only logged users -->
+      <div *ngIf="isAuthenticated">
+        <ul>
+          <li><a routerLink="/add-new">Add new</a></li>
+          <li><a>{{ user?.displayName || user?.email }}'s Profile</a></li>
+        </ul>
       </div>
-  
-  
-        <!-- All The time -->
-        <li><a routerLink="/about">About-us</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
+
+      <!-- only logout users -->
+      <div *ngIf="!isAuthenticated">
+        <ul>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/register">Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Visible all the time -->
+      <li><a routerLink="/about">About-us</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+
+      <!-- Visible when im a logged -->
+      <div *ngIf="isAuthenticated"> 
+        <li><a routerLink="/" (click)="logout()">Logout</a></li> 
+      </div>
+
+    </ul>
+  </nav>
+</header>
