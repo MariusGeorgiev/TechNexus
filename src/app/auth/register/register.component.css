@@ -1,0 +1,107 @@
+
+form.register {
+  width: 40%;
+  margin: 2em auto 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+form.register fieldset {
+    border-radius: 0.3em;
+    padding: 1.5em; 
+    background-color: brown;
+    border: 1px solid #03763b;
+  }
+
+.register h2 {
+  padding-top: 0;
+  border-bottom: none;
+  color: #333;
+}
+
+.register p {
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.register input {
+  flex: 0 1 100%;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  border-left: 0.3em solid #28a745;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.register input:focus {
+  border-left-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.register i {
+  border: 1px solid #ccc;
+  border-right: none;
+  padding: 0.55em;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  background-color: #e9ecef;
+  color: #555;
+}
+
+.register select {
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+  padding: 0.3em;
+  background-color: #fff;
+}
+
+
+.register button {
+  color: white;
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.7em 1.5em;
+  margin-top: 1.5rem;
+  width: 60%;
+  background-color: #007bff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.register button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.register button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.register a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+p.error {
+  text-align: left;
+  border-radius: 0.3em;
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 0.5em;
+  margin: 0.3em 0 0;
+  font-size: 0.9em;
+}
+
+.input-error {
+  border-left-color: #dc3545;
+}
+

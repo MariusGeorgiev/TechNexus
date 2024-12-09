@@ -1,1 +1,94 @@
-<p>register works!</p>
+<div class="container">
+    <form class="register" [formGroup]="form" (ngSubmit)="register()">
+      <fieldset>
+        <h2>Registration Form</h2>
+
+        <p class="field field-icon">
+          <label for="username"><span><i class="fas fa-user">Username:</i></span></label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Johny"
+            formControlName="username"
+          />
+        </p>
+        <p class="error" *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required']">
+          Username is required!
+        </p>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+          Username must be at least 5 characters!
+        </p>
+  
+        <p class="field field-icon">
+          <label for="email"><span><i class="fas fa-envelope">Email address:</i></span></label>
+          <input
+            type="email"
+            id="email"
+            placeholder="john.doe@gmail.com"
+            formControlName="email"
+          />
+        </p>
+        <p class="error" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">
+          Email is required!
+        </p>
+        <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+          Email is not valid!
+        </p>
+  
+        <p class="field field-icon">
+            <label for="tel" class="tel-label">Telephone:</label>
+
+          <select id="select-tel" class="tel">
+            <option value="00359">+359</option>
+          </select>
+          <input
+            type="text"
+            name="tel"
+            id="tel"
+            placeholder="885 888 888"
+            formControlName="tel"
+          />
+        </p>
+        <p class="error" *ngIf="form.get('tel')?.errors?.['pattern']">
+            Telephone number format is invalid! Is required exactly 9 numbers!
+        </p>
+  
+        <ng-container formGroupName="passGroup">
+          <p class="field field-icon">
+            <label for="password"><span><i class="fas fa-lock">Password:</i></span></label>
+            <input
+              type="password"
+              id="password"
+              placeholder="******"
+              formControlName="password"
+            />
+          </p>
+  
+          <p class="field field-icon">
+            <label for="rePassword"><span><i class="fas fa-lock">Repeat password:</i></span></label>
+            <input
+              type="password"
+              id="rePassword"
+              placeholder="******"
+              formControlName="rePassword"
+            />
+          </p>
+          <p class="error" *ngIf="passGroup?.errors?.['matchPasswordsValidator']">
+            Passwords do not match!
+          </p>
+        </ng-container>
+  
+        <button
+          [disabled]="form.invalid"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }"
+        >
+          Create Account
+        </button>
+  
+        <p class="text-center">
+          Have an account? <a routerLink="/login">Log In</a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  
