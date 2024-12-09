@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form" (ngSubmit)="login()">
+      <fieldset>
+        <h2>Login Form</h2>
+  
+        <p class="field field-icon">
+          <label for="email">
+            <span><i class="fas fa-envelope">Email:</i></span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john.doe@gmail.com"
+            formControlName="email"
+          />
+        </p>
+        <ng-container *ngIf="form.get('email')?.touched">
+          <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+            Email is required!
+          </p>
+          <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+            Please enter a valid email!
+          </p>
+        </ng-container>
+  
+        <p class="field field-icon">
+          <label for="password">
+            <span><i class="fas fa-lock">Password:</i></span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="******"
+            formControlName="password"
+          />
+        </p>
+        <ng-container *ngIf="form.get('password')?.touched">
+          <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+            Password is required!
+          </p>
+        </ng-container>
+  
+        <button [disabled]="form.invalid">Log In</button>
+  
+        <p class="text-center">
+          Don't have an account?
+          <a routerLink="/register">Register</a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  
