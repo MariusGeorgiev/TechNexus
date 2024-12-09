@@ -26,6 +26,8 @@ import { SharedModule } from './shared/shared.module';
 // Import Firebase modules
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -44,7 +46,9 @@ import { getFirestore } from 'firebase/firestore';
     NotFound404Component,
     HardwareArticlesComponent,
     SoftwareArticlesComponent,
-    ScienceArticlesComponent
+    ScienceArticlesComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
