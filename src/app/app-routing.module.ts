@@ -16,6 +16,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';  
 import { NotFound404Component } from './not-found-404/not-found-404.component';
 
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 const routes: Routes = [
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'details-article/:id', component: DetailsArticleComponent },
   { path: 'edit-article/:id', component: EditArticleComponent },
   { path: 'about', component: AboutUsComponent },  
-  { path: 'contact', component: ContactComponent },  
+  { path: 'contact', component: ContactComponent }, 
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }, 
   { path: '**', component: NotFound404Component },  
 ];
 
