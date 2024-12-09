@@ -14,7 +14,7 @@ export class HardwareArticlesComponent implements OnInit {
   ngOnInit(): void {
     // Fetch all articles when the component is initialized
     this.articleService.getAllArticles().subscribe(data => {
-      // Filter articles to only include those with the 'Hardware' category
+      // Filter articles to include only hardware
       this.articles = data.filter(article => article.category === 'Hardware');
     });
   }

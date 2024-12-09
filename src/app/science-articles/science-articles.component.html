@@ -1,1 +1,26 @@
-<p>science-articles works!</p>
+<!-- Science Articles Page -->
+<div class="science-articles-container">
+    <h1>Science Articles</h1>
+  
+    <!-- Article Counter -->
+    <p *ngIf="articles.length > 0" class="article-count">
+      Total News: {{ articles.length }}
+    </p>
+  
+    <!-- Articles List -->
+    <div *ngIf="articles.length > 0; else noArticles">
+      <div *ngFor="let article of articles"> <!-- Add *ngFor to loop through articles -->
+        <a [routerLink]="['/details-article', article.id]">
+          <h2>{{ article.title }}</h2>
+          <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image"/>
+          <p>{{ article.date }}</p>
+        </a>
+      </div>
+    </div>
+  
+    <!-- No Articles Template -->
+    <ng-template #noArticles>
+      <p class="no-articles">No science articles available at the moment.</p>
+    </ng-template>
+  </div>
+  
