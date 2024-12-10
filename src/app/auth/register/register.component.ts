@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
+
 
 interface RegisterFormData {
     username: string;
@@ -21,7 +23,7 @@ interface RegisterFormData {
 export class RegisterComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
@@ -67,6 +69,7 @@ export class RegisterComponent {
           }).then(() => {
             console.log('User additional info saved to Firestore');
             alert('Registration successful!');
+            this.router.navigate(['/']);
           }).catch((error) => {
             console.error('Error saving user data:', error);
           });
