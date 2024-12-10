@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 interface RegisterFormData {
-  username: string;
-  email: string;
-  tel: string;
-  passGroup: {
+    username: string;
+    email: string;
+    tel: string;
+    passGroup: {
     password: string;
     rePassword: string;
   };
@@ -48,14 +49,27 @@ export class RegisterComponent {
   register() {
     if (this.form.valid) {
       const formData: RegisterFormData = this.form.value;
-      const { email, passGroup } = formData;
+      const { email, passGroup, username, tel } = formData;
       const password = passGroup.password;
 
       const auth = getAuth();
+      const db = getFirestore();
+
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log('User registered:', userCredential.user);
-          alert('Registration successful!');
+
+          // Store additional user data in Firestore
+          const userRef = doc(db, 'users', userCredential.user.uid);
+          setDoc(userRef, {
+            username: username,
+            tel: tel
+          }).then(() => {
+            console.log('User additional info saved to Firestore');
+            alert('Registration successful!');
+          }).catch((error) => {
+            console.error('Error saving user data:', error);
+          });
         })
         .catch((error) => {
           console.error('Registration error:', error.message);
