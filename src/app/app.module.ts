@@ -31,6 +31,7 @@ import { getFirestore } from 'firebase/firestore';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 
@@ -53,7 +54,8 @@ import { ProfileComponent } from './profile/profile.component';
     ScienceArticlesComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,

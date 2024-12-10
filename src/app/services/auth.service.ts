@@ -46,7 +46,11 @@ export class AuthService {
         const user = userCredential.user;
         // Save user details to Firestore
         const userRef = doc(db, 'users', user.uid);
-        return setDoc(userRef, { username, email, tel });
+
+        const now = new Date();
+        const registeredOn = now.toISOString();
+
+        return setDoc(userRef, { username, email, tel, registeredOn });
       });
   }
 

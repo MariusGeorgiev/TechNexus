@@ -1,0 +1,26 @@
+<div *ngIf="loading; else loaded">
+    <p>Loading user statistics...</p>
+  </div>
+  
+  <ng-template #loaded>
+    <h1>Registered Users and Article Statistics</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Registered On</th>
+          <th>Articles Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usersWithStats; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.registeredOn | date: 'yyyy.MM.dd | HH:mm:ss' }}</td>
+          <td>{{ user.articleCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+  

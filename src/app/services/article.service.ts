@@ -48,4 +48,34 @@ export class ArticleService {
     return from(updateDoc(articleRef, updatedData));
   }
 
+  // Get users and count of created news
+  getAllUsersWithArticleCount(): Observable<any[]> {
+    const usersRef = collection(this.firestore, 'users');
+    const articlesRef = collection(this.firestore, 'articles');
+  
+    return from(
+      getDocs(usersRef).then(async (usersSnapshot) => {
+        const userData: any[] = [];
+  
+        for (const userDoc of usersSnapshot.docs) {
+          const userId = userDoc.id;
+          const user = {
+            id: userId,
+            ...userDoc.data(), // includes username, tel, and createdAt
+            articleCount: 0
+          };
+  
+          // Count articles created by the user
+          const userArticlesQuery = query(articlesRef, where('userId', '==', userId));
+          const userArticlesSnapshot = await getDocs(userArticlesQuery);
+          user.articleCount = userArticlesSnapshot.size;
+  
+          userData.push(user);
+        }
+  
+        return userData;
+      })
+    );
+  }
+
 }
