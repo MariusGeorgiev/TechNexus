@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
-import { environment } from '../../environments/environment';
-import { ArticleService } from '../services/article.service'; // Import the article service
+// import { getFirestore, collection, getDocs } from 'firebase/firestore';
+// import { initializeApp } from 'firebase/app';
+// import { environment } from '../../environments/environment';
+import { ArticleService } from '../services/article.service'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,6 +33,6 @@ export class AllNewsComponent implements OnInit {
   
 
   navigateToCategory(category: string): void {
-    this.router.navigate([`${category}-articles`]); // Navigate to category page
+    this.router.navigate([`${category}-articles`]); 
   }
 }

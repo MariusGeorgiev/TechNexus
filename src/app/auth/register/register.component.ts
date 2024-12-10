@@ -58,7 +58,6 @@ export class RegisterComponent {
       const { email, passGroup, username, tel } = formData;
       const password = passGroup.password;
 
-      // Use AuthService's register method instead of Firebase's method directly
       this.authService.register(username, email, tel, password)
         .then(() => {
           console.log('User registered and logged in');

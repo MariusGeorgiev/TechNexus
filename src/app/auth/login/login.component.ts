@@ -28,7 +28,6 @@ export class LoginComponent {
       const formData: LoginFormData = this.form.value;
       const { email, password } = formData;
 
-      // Use AuthService's login method instead of Firebase's method directly
       this.authService.login(email, password)
         .then((userCredential) => {
           console.log('User logged in:', userCredential.user);

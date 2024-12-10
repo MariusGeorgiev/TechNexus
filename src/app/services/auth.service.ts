@@ -8,35 +8,35 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private userSubject: BehaviorSubject<any> = new BehaviorSubject(null); // Observable user data
+  private userSubject: BehaviorSubject<any> = new BehaviorSubject(null); 
   user$ = this.userSubject.asObservable();
 
   constructor(private router: Router) {
-    // Check if the user is already logged in
+    
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Fetch user data from Firestore when the user is logged in
+
         this.fetchUserData(user.uid);
       } else {
-        this.userSubject.next(null); // If no user is logged in, set user data to null
+        this.userSubject.next(null); 
       }
     });
   }
 
-  // Login Method
+
   login(email: string, password: string) {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // Fetch user data after login
+        
         this.fetchUserData(user.uid);
-        return userCredential; // Return the userCredential so you can log it in your component
+        return userCredential; 
       });
   }
 
-  // Register Method
+
   register(username: string, email: string, tel: string, password: string) {
     const auth = getAuth();
     const db = getFirestore();
@@ -60,9 +60,9 @@ export class AuthService {
         const userData = docSnap.data();
         this.userSubject.next({
           uid,
-          username: userData['username'],  // Use bracket notation
-          email: userData['email'],        // Use bracket notation
-          tel: userData['tel']             // Use bracket notation
+          username: userData['username'],  
+          email: userData['email'],        
+          tel: userData['tel']             
         });
       } else {
         console.log('No such user!');
@@ -74,17 +74,18 @@ export class AuthService {
     });
   }
 
-  // Get Current User (Observable)
+
   getCurrentUser() {
-    return this.userSubject.asObservable();
+    const auth = getAuth();
+    return auth.currentUser;
   }
 
-  // Logout Method
+
   logout() {
     const auth = getAuth();
     return signOut(auth).then(() => {
-      this.userSubject.next(null); // Clear user data
-      this.router.navigate(['/login']); // Redirect to login
+      this.userSubject.next(null);
+      this.router.navigate(['/login']); 
     });
   }
 }

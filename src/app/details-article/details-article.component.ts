@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router  } from '@angular/router';
 import { ArticleService } from '../services/article.service'; 
+import { AuthService } from '../services/auth.service';
 import { Observable, of } from 'rxjs';  
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-details-article',
@@ -11,21 +12,40 @@ import { catchError, switchMap } from 'rxjs/operators';
 })
 export class DetailsArticleComponent implements OnInit {
   articleId: string = '';  
-  article$: Observable<any> = of(null);  
+  article$: Observable<any> = of(null);
+  createdByUsername: string = '';
+  isCreator: boolean = false;  
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticleService,  
+    private articleService: ArticleService,
+    private authService: AuthService,  
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    // Get the articleId from the route parameter
     this.route.paramMap.subscribe(params => {
-      this.articleId = params.get('id') || '';  
+      this.articleId = params.get('id') || '';
 
-      // Fetch the article based on articleId
+      
       this.article$ = this.articleService.getArticle(this.articleId).pipe(
+        switchMap(article => {
+          if (article && article.userId) {
+           
+            return this.articleService.getUser(article.userId).pipe(
+              tap(user => {
+                this.createdByUsername = user?.username || 'Unknown User';
+              }),
+              tap(() => {
+                
+                const currentUser = this.authService.getCurrentUser();
+                this.isCreator = currentUser?.uid === article.userId;
+              }),
+              switchMap(() => of(article)) 
+            );
+          }
+          return of(article);
+        }),
         catchError(() => of(null)) 
       );
     });

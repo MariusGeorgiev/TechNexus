@@ -37,13 +37,13 @@ export class EditArticleComponent implements OnInit {
       this.articleService.getArticle(articleId).subscribe(data => {
         if (data) {
           this.article = data;
-          this.imagePreview = this.article.imageUrl; // Initialize image preview
+          this.imagePreview = this.article.imageUrl; 
         }
       });
     }
   }
 
-  // Handle file selection
+
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     const file = fileInput.files?.[0];
@@ -64,11 +64,11 @@ export class EditArticleComponent implements OnInit {
     this.imagePreview = input.value;
   }
 
-  // Save the edited article
+
   saveArticle(): void {
     if (this.article) {
 
-      // If a new image is selected, upload it to Firebase Storage
+
       if (this.selectedImageFile) {
         const storage = getStorage();
         const storageRef = ref(storage, 'images/' + this.selectedImageFile.name);
@@ -79,11 +79,10 @@ export class EditArticleComponent implements OnInit {
           null,
           (error) => console.error('Error uploading file:', error),
           async () => {
-            // Get download URL and update the article
+
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
             this.article.imageUrl = downloadURL;
 
-            // Now update the article with the new image URL
             this.articleService.updateArticle(this.articleId, this.article).subscribe(() => {
               alert('Article updated successfully!');
               this.router.navigate(['/details-article', this.articleId]); 
@@ -91,7 +90,7 @@ export class EditArticleComponent implements OnInit {
           }
         );
       } else {
-        // If no new image, just update the article data without uploading
+
         this.articleService.updateArticle(this.articleId, this.article).subscribe(() => {
           alert('Article updated successfully!');
           this.router.navigate(['/details-article', this.articleId]); 

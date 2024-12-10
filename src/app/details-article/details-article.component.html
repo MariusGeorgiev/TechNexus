@@ -3,13 +3,14 @@
     <!-- Details page for users and guests -->
   <h1>{{ article.title }}</h1>
   <p><strong>Created on:</strong> {{ article.time }} | {{ article.date }}</p>
+  <p><strong>Created from:</strong> {{ createdByUsername }}</p>
   <p><strong>Category:</strong> {{ article.category }}</p> 
   <img [src]="article.imageUrl" alt="Article Image">
   <p><strong>Post Content:</strong></p>
   <p>{{ article.summary }}</p>
   
   <!-- Page with Edit and Delete only for creators -->
-  <div style="margin-top: 20px;">
+  <div *ngIf="isCreator" style="margin-top: 20px;">
     <button (click)="editArticle()">Edit</button>
     <button (click)="deleteArticle()" style="margin-left: 10px; color: red;">Delete</button>
   </div>

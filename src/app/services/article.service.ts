@@ -18,6 +18,13 @@ export class ArticleService {
     return from(getDoc(articleRef).then(docSnapshot => docSnapshot.data()));
   }
 
+  // Get Creator
+    getUser(userId: string): Observable<any> {
+      const userRef = doc(this.firestore, 'users', userId);
+      return from(getDoc(userRef).then(docSnapshot => docSnapshot.data()));
+    }
+  
+
   // Get All Articles
   getAllArticles(): Observable<any[]> {
     const articlesRef = collection(this.firestore, 'articles');

@@ -4,6 +4,8 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new',
@@ -13,9 +15,14 @@ import { environment } from '../../environments/environment';
 export class AddNewComponent {
   createForm: FormGroup;
   selectedImageUrl: string | null = null;
-  loading: boolean = false; // State for showing loader
+  loading: boolean = false;
+  currentUserId: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
 
     this.createForm = this.fb.group({
       title: ['', [Validators.required]],
@@ -26,15 +33,23 @@ export class AddNewComponent {
 
     // Init Firebase
     const app = initializeApp(environment.firebaseConfig);
+
+    
+    this.authService.user$.subscribe(user => {
+      if (user) {
+        this.currentUserId = user.uid; 
+      }
+    });
+  
   }
 
+  
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     const file = fileInput.files?.[0];
     if (file) {
       this.createForm.patchValue({ imageFile: file });
 
-      // Generate a preview of the selected image
       const reader = new FileReader();
       reader.onload = (e) => {
         this.selectedImageUrl = e.target?.result as string;
@@ -45,7 +60,7 @@ export class AddNewComponent {
 
   onSubmit(): void {
     if (this.createForm.valid) {
-      this.loading = true; // Start loader
+      this.loading = true; 
       const formData = this.createForm.value;
       const imageFile = formData.imageFile;
 
@@ -59,7 +74,7 @@ export class AddNewComponent {
         null,
         (error) => { 
           console.error('Error uploading file:', error);
-          this.loading = false; // Stop loader on error
+          this.loading = false;
         },
         async () => {
           // Get download URL and save data to Firestore
@@ -86,17 +101,18 @@ export class AddNewComponent {
             date: currentDate,
             time: currentTime,
             summary: formData.summary,
-            imageUrl: downloadURL
+            imageUrl: downloadURL,
+            userId: this.currentUserId
           })
             .then((docRef) => {
               console.log('Document written with ID:', docRef.id);
-              this.loading = false; // Stop loader on success
-            // Refresh the current page after a successful is created the new article
-              window.location.reload();
+              this.loading = false;
+            
+              this.router.navigate(['/details-article', docRef.id]);
             })
             .catch((error) => {
               console.error('Error adding document:', error);
-              this.loading = false; // Stop loader on error
+              this.loading = false; 
             });
         }
       );
