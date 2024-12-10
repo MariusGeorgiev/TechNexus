@@ -1,4 +1,16 @@
-<div class="container">
+<!-- Message ! -->
+<div *ngIf="showMessage" class="notification">
+  {{ message }}
+</div>
+
+<!-- Loader -->
+<div *ngIf="isLoading" class="loader-container">
+  <div class="loader"></div>
+</div>
+
+
+<!-- Register Form -->
+<div class="container" *ngIf="isFormVisible">
     <form class="register" [formGroup]="form" (ngSubmit)="register()">
       <fieldset>
         <h2>Registration Form</h2>

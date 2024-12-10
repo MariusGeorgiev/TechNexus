@@ -21,6 +21,7 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
 // Shared
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { SharedModule } from './shared/shared.module';
 
 // Import Firebase modules
@@ -29,6 +30,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+
 
 
 

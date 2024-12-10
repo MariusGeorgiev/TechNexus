@@ -1,3 +1,7 @@
+.container {
+  height: 100vh;
+}
+
 form.login {
     width: 40%;
     margin: 2em auto 0;

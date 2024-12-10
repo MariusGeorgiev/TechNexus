@@ -1,5 +1,10 @@
+.create-page {
+  height: 100vh;
+}
+
 .auth .container {
-    max-width: 600px;
+  
+    max-width: 50%;
     margin: 2rem auto;
     padding: 1.5rem;
     background-color: #f4f4f4;

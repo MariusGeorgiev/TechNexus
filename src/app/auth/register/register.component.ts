@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 
@@ -22,6 +22,10 @@ interface RegisterFormData {
 })
 export class RegisterComponent {
   form: FormGroup;
+  message: string = ''; 
+  showMessage: boolean = false;
+  isLoading: boolean = false;
+  isFormVisible: boolean = true;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
@@ -49,7 +53,12 @@ export class RegisterComponent {
   }
 
   register() {
+
     if (this.form.valid) {
+
+      this.isFormVisible = false;
+
+
       const formData: RegisterFormData = this.form.value;
       const { email, passGroup, username, tel } = formData;
       const password = passGroup.password;
@@ -61,15 +70,33 @@ export class RegisterComponent {
         .then((userCredential) => {
           console.log('User registered:', userCredential.user);
 
-          // Store additional user data in Firestore
           const userRef = doc(db, 'users', userCredential.user.uid);
           setDoc(userRef, {
             username: username,
             tel: tel
+
           }).then(() => {
             console.log('User additional info saved to Firestore');
-            alert('Registration successful!');
-            this.router.navigate(['/']);
+
+        
+            signInWithEmailAndPassword(auth, email, password)
+            .then((signInCredential) => {
+              console.log('User logged in:', signInCredential.user);
+              
+              this.message = 'Registration and login successful!';
+              this.showMessage = true;
+
+              this.isLoading = true;
+
+              
+              setTimeout(() => {
+                this.router.navigate(['/']);
+                this.showMessage = false; 
+                this.isLoading = false; 
+              }, 2000); 
+              
+            });
+
           }).catch((error) => {
             console.error('Error saving user data:', error);
           });

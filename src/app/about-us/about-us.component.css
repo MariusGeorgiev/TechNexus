@@ -1,7 +1,11 @@
 .about-page {
-    min-height: 100vh;
+    height: 100vh;
+    text-align: center;
+    padding: 2rem; /* Adds spacing around the content */
+    color: rgb(77, 62, 62);
+    box-sizing: border-box;  /* Prevents padding from causing overflow */
 }
 
-/* .about-page h1{
-    color: white;
-} */
+.about-page h1 {
+    margin: 0;
+}
