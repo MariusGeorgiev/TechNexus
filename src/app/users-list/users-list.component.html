@@ -17,7 +17,11 @@
         <tr *ngFor="let user of usersWithStats; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ user.username }}</td>
-          <td>{{ user.registeredOn | date: 'yyyy.MM.dd | HH:mm:ss' }}</td>
+          <td>
+            <span class="date-label">Date:</span> {{ user.registeredOn | date: 'dd MMMM' }} 
+            <span class="time-label">Time:</span> {{ user.registeredOn | date: 'HH:mm:ss' }} 
+            <span class="year-label">Year:</span> {{ user.registeredOn | date: 'yyyy' }}
+          </td>
           <td>{{ user.articleCount }}</td>
         </tr>
       </tbody>

@@ -19,3 +19,15 @@ table {
     background-color: #f4f4f4;
   }
   
+
+  .date-label {
+    color: #007bff;  /* Blue color for Date */
+  }
+  
+  .time-label {
+    color: #28a745;  /* Green color for Time */
+  }
+  
+  .year-label {
+    color: #dc3545;  /* Red color for Year */
+  }
