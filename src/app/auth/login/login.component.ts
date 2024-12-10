@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Router } from '@angular/router'; 
+import { AuthService } from '../../services/auth.service';  // Import AuthService
+import { Router } from '@angular/router';
 
 interface LoginFormData {
   email: string;
@@ -16,7 +16,7 @@ interface LoginFormData {
 export class LoginComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
@@ -28,12 +28,11 @@ export class LoginComponent {
       const formData: LoginFormData = this.form.value;
       const { email, password } = formData;
 
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, email, password)
+      // Use AuthService's login method instead of Firebase's method directly
+      this.authService.login(email, password)
         .then((userCredential) => {
           console.log('User logged in:', userCredential.user);
           alert('Login successful!');
-
           this.router.navigate(['/']);
         })
         .catch((error) => {

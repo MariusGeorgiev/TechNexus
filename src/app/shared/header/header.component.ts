@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { AuthService } from '../../services/auth.service';  // Import the AuthService
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,14 +11,14 @@ export class HeaderComponent implements OnInit {
   isAuthenticated = false;
   user: any = null;
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    // Subscribe to the user observable to check if the user is logged in
+    this.authService.user$.subscribe(user => {
       if (user) {
         this.isAuthenticated = true;
-        this.user = user;
+        this.user = user;  // You can use this user object to access the user details
       } else {
         this.isAuthenticated = false;
         this.user = null;
@@ -27,14 +27,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    const auth = getAuth();
-    signOut(auth).then(() => {
+    this.authService.logout().then(() => {
       console.log('User logged out');
-      this.isAuthenticated = false;
-      this.user = null; 
+      this.router.navigate(['/']);  // Redirect user to login page after logout
     }).catch((error) => {
       console.error('Error logging out:', error);
     });
   }
-
 }

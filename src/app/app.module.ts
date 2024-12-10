@@ -30,6 +30,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -51,7 +52,8 @@ import { RegisterComponent } from './auth/register/register.component';
     SoftwareArticlesComponent,
     ScienceArticlesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

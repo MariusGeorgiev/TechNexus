@@ -18,7 +18,7 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +32,8 @@ const routes: Routes = [
   { path: 'about', component: AboutUsComponent },  
   { path: 'contact', component: ContactComponent }, 
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }, 
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent }, 
   { path: '**', component: NotFound404Component },  
 ];
 
