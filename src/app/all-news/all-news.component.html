@@ -20,12 +20,16 @@
   <button (click)="navigateToCategory('science')">Science Articles</button>
 </div>
 
-<div *ngFor="let article of articles">
+<div class="all-articles" *ngFor="let article of articles">
   <a [routerLink]="['/details-article', article.id]">
-    <h2>{{ article.title }}</h2>
-    <p>category: {{ article.category }}</p>
-    <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
-    <p>{{ article.time }} | {{ article.date }}</p>
+    <div class="image-container">
+      <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
+      <div class="text-overlay">
+        <h2>{{ article.title }}</h2>
+        <p>Category: {{ article.category }}</p>
+        <p>{{ article.time }} | {{ article.date }}</p>
+      </div>
+    </div>
   </a>
 </div>
 
