@@ -31,7 +31,6 @@ export class LoginComponent {
       this.authService.login(email, password)
         .then((userCredential) => {
           console.log('User logged in:', userCredential.user);
-          alert('Login successful!');
           this.router.navigate(['/']);
         })
         .catch((error) => {

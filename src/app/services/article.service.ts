@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, collection, query, orderBy, where, limit, doc, getDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, where, arrayUnion, doc, getDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -76,6 +76,14 @@ export class ArticleService {
         return userData;
       })
     );
+  }
+
+   // Add Comment to details-article
+   addCommentToArticle(articleId: string, comment: any): Observable<void> {
+    const articleRef = doc(this.firestore, 'articles', articleId);
+    return from(updateDoc(articleRef, {
+      comments: arrayUnion(comment) // Adds comment to the array in Firestore
+    }));
   }
 
 }

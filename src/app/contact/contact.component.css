@@ -1,9 +1,11 @@
 .contact-page {
-    height: 100vh;
+    height: calc(100vh - 196px);
     text-align: center;
-    padding: 2rem; /* Adds spacing around the content */
+    padding: 2rem; 
     color: rgb(77, 62, 62);
-    box-sizing: border-box;  /* Prevents padding from causing overflow */
+    box-sizing: border-box;  
+    /* padding-top: 50px;
+    padding-bottom: 90px; */
 }
 
 .contact-page h1 {

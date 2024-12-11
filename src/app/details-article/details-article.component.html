@@ -1,22 +1,80 @@
-<div *ngIf="article$ | async as article; else loading">
+<div class="article-page">
+        <div *ngIf="article$ | async as article; else loading">
 
-    <!-- Details page for users and guests -->
-  <h1>{{ article.title }}</h1>
-  <p><strong>Created on:</strong> {{ article.time }} | {{ article.date }}</p>
-  <p><strong>Created from:</strong> {{ createdByUsername }}</p>
-  <p><strong>Category:</strong> {{ article.category }}</p> 
-  <img [src]="article.imageUrl" alt="Article Image">
-  <p><strong>Post Content:</strong></p>
-  <p>{{ article.summary }}</p>
-  
-  <!-- Page with Edit and Delete only for creators -->
-  <div *ngIf="isCreator" style="margin-top: 20px;">
-    <button (click)="editArticle()">Edit</button>
-    <button (click)="deleteArticle()" style="margin-left: 10px; color: red;">Delete</button>
-  </div>
+
+          <!-- section for the new -->
+          <div class="the-new-info-section">
+                  <!-- Details page for users and guests -->
+                <h1>{{ article.title }}</h1>
+
+                <div class="created-from-on">
+                  <p><strong>Created from:</strong> <br>{{ createdByUsername }}</p>
+                  <p><strong>Category:</strong> <br>{{ article.category }}</p> 
+                <p><strong>Created on:</strong> <br>{{ article.time }} | {{ article.date }}</p>
+              </div>
+              
+                <img [src]="article.imageUrl" alt="Article Image">
+                <p><strong>Post Content:</strong></p>
+                <p class="article-text">{{ article.summary }}</p>
+
+                <!-- Page with Edit and Delete only for creators -->
+                 
+                <div class="edit-del-buttons" *ngIf="isCreator">
+                  <button class="edit" (click)="editArticle()">Edit New</button>
+                  <button class="delete" (click)="deleteArticle()">Delete New</button>
+                </div>
+                
+              </div>
+
+
+                <!-- comment section ! -->
+              <div class="comment-section">
+                <h3>Comments</h3>
+
+                      <!-- for logged in users-->
+                      <div class="comment-submiting-section" *ngIf="user$ | async as user; else loginPrompt">
+                        <textarea [(ngModel)]="newComment" placeholder="Add a comment..."></textarea>
+                        <button class="submit-button" (click)="addComment()">Submit your comment</button>
+                        
+                      </div>
+
+                    <!-- all comments -->
+                      
+                      <ng-template #loginPrompt>
+                        <p>You must be logged in to add a comment.</p>
+                      </ng-template>
+                      <span class="counter-comments">({{  article.comments?.length || 0  }})</span>
+                    
+                     <div class="all-comments">
+                     
+                      
+                    <div *ngIf="article?.comments?.length > 0; else noComments">
+                      
+                        
+                        <div *ngFor="let comment of article.comments">
+                          
+                          <p><span><strong>{{ comment.userName }}:</strong></span><span> {{ comment.timestamp | date: 'HH:mm:ss | dd.MM.yyyy' }}</span></p>
+                          <span><p class="comment-content" >{{ comment.content }}</p></span>
+                          
+                        </div>
+                     </div>
+
+                     
+                     <ng-template #noComments>
+                      <p class="noComments">No comments yet !</p>
+                    </ng-template>
+                    </div>
+
+                    
+
+              </div>
+
+                
+
+        </div>
+
+        <ng-template #loading>
+          <p>Loading article...</p>
+        </ng-template>
 
 </div>
-
-<ng-template #loading>
-  <p>Loading article...</p>
-</ng-template>
