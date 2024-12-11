@@ -1,3 +1,13 @@
+.user-stats-container {
+  height: calc(100vh - 196px);
+  text-align: center;
+  padding: 2rem; 
+  color: rgb(77, 62, 62);
+  box-sizing: border-box;  
+  /* padding-top: 50px;
+  padding-bottom: 90px; */
+}
+
 h1 {
     text-align: center;
 }
@@ -30,4 +40,12 @@ table {
   
   .year-label {
     color: #dc3545;  /* Red color for Year */
+  }
+
+  .loader {
+    height: calc(100vh - 296px);
+    font-size: 5rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
   }

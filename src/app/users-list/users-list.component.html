@@ -1,8 +1,10 @@
-<div *ngIf="loading; else loaded">
-    <p>Loading user statistics...</p>
-  </div>
-  
-  <ng-template #loaded>
+<div class="loader" *ngIf="loading; else loaded">
+  <p>Loading user statistics...</p>
+</div>
+
+<div class="content-of-users">
+<ng-template #loaded>
+  <div class="user-stats-container">
     <h1>Registered Users and Article Statistics</h1>
     <table>
       <thead>
@@ -26,5 +28,6 @@
         </tr>
       </tbody>
     </table>
-  </ng-template>
-  
+  </div>
+</ng-template>
+</div>

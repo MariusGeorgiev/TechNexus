@@ -1,32 +1,250 @@
+/* main {
+height: 90vh;
+} */
+
+
+/* new test */
+
+.article-page {
+ display: flex;
+ justify-content: center;
+
+ padding-bottom: 100px;
+}
+
+
+.the-new-info-section{
+  border: solid rgba(95, 3, 3, 0.35);
+  border-radius: 20px;
+  min-width: 600px;
+  max-width: 2500px;
+  margin-top: 9%;
+  text-align: center;
+  padding-top: 10px;
+ 
+
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.created-from-on {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  max-height: 350px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+  transform-origin: center center; 
+  cursor: pointer;
+  z-index: 1; 
+}
 
-    max-width: 50%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  h1 {
-    margin-bottom: 15px;
-  }
-  
-  p {
-    margin-bottom: 10px;
-  }
+img:active {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  max-width: 100vw; 
+  max-height: 100vh;
+  object-fit: contain; 
+  z-index: 999; 
+}
 
-  article {
-    max-width: 50%; 
-    margin: 200px auto; 
-    padding: 200px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
-  
-  strong {
-    font-weight: bold;
-    color: #333;
-  }
-  
+.article-text {
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+
+.comment-section {
+  padding-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  padding-bottom: 20px;
+}
+
+textarea {
+  min-width: 400px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.comment-submiting-section {
+display: flex;
+flex-direction: column ;
+justify-content: space-between;
+min-width: 45%;
+
+}
+
+
+/* Comments section */
+.comment-list {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.counter-comments {
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.all-comments {
+  border: 2px solid #0056b3; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  background-color: #f9f9f9; 
+  padding: 5px 30px; 
+  margin: 10px 0; 
+  text-align: left;
+  width: 40%; 
+  min-width: 400px; 
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word; 
+  transition: box-shadow 0.3s ease, transform 0.2s ease; 
+}
+
+.all-comments > div > div {
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid #480707;
+  padding: 5px 10px;
+}
+
+.all-comments > div > div:last-child {
+  border-bottom: none; 
+}
+
+.all-comments > div > div > p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment {
+  text-align: left;
+  background-color: #f1f1f1;
+  border-left: 4px solid #007bff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(67, 16, 16, 0.05);
+}
+
+.comment p {
+  margin: 5px 0;
+  color: #510f0f;
+  font-size: 1rem;
+}
+
+.comment .user-name {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.comment .timestamp {
+  font-size: 0.9rem;
+  color: #888;
+  margin-left: 10px;
+}
+
+.comment-content {
+  margin-top: 8px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.noComments{
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+#loading {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+
+.edit-del-buttons {
+  display: flex;
+  justify-content: space-between; 
+ 
+  margin: 0 10px; 
+  transition: background-color 0.3s ease;
+  gap: 150px;
+}
+
+.delete, .edit {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px 20px; 
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  min-width: 75px;
+  max-width: 200px;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+  flex: 1; 
+  text-align: center; 
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px 20px; 
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  text-align: center; 
+  margin-left: 37%;
+  margin-right: 37%;
+  max-width: 100%;
+
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} 
+
+

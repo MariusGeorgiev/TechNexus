@@ -1,15 +1,22 @@
 .container {
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Align horizontally center */
+  align-items: center ;/* Align vertically center */
+  transform: translateY(-100px); 
+
 }
 
 form.login {
     width: 40%;
+   
     margin: 2em auto 0;
     text-align: center;
     font-family: Arial, sans-serif;
   }
   
   form.login fieldset {
+    min-height: 200px;
     border-radius: 0.3em;
     padding: 1.5em;
     background-color: brown;
@@ -107,3 +114,6 @@ form.login {
     border-left-color: #dc3545;
   }
   
+  footer {
+    padding-top: 200px;
+  }

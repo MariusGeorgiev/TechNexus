@@ -1,5 +1,12 @@
+
+
 .container, .notification, .loader-container {
   height: 100vh;
+  display: flex;
+  justify-content: center; /* Align horizontally center */
+  align-items: center ;/* Align vertically center */
+  transform: translateY(-100px); 
+
 }
 
 .form-container {
