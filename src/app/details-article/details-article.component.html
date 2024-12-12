@@ -1,5 +1,5 @@
 <div class="article-page">
-        <div *ngIf="article$ | async as article; else loading">
+        <div class="content-area" *ngIf="article$ | async as article; else loading">
 
 
           <!-- section for the new -->
@@ -13,9 +13,15 @@
                 <p><strong>Created on:</strong> <br>{{ article.time }} | {{ article.date }}</p>
               </div>
               
+              <div class="image-and-content">
+
                 <img [src]="article.imageUrl" alt="Article Image">
+
+              <div class="article-content">
                 <p><strong>Post Content:</strong></p>
                 <p class="article-text">{{ article.summary }}</p>
+              </div>
+            </div>
 
                 <!-- Page with Edit and Delete only for creators -->
                  
@@ -44,6 +50,8 @@
                         <p>You must be logged in to add a comment.</p>
                       </ng-template>
                       <span class="counter-comments">({{  article.comments?.length || 0  }})</span>
+
+                    
                     
                      <div class="all-comments">
                      
@@ -51,7 +59,7 @@
                     <div *ngIf="article?.comments?.length > 0; else noComments">
                       
                         
-                        <div *ngFor="let comment of article.comments">
+                        <div class="all-comments-inner" *ngFor="let comment of article.comments">
                           
                           <p><span><strong>{{ comment.userName }}:</strong></span><span> {{ comment.timestamp | date: 'HH:mm:ss | dd.MM.yyyy' }}</span></p>
                           <span><p class="comment-content" >{{ comment.content }}</p></span>
