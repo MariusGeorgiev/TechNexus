@@ -77,3 +77,52 @@ max-width: 200px;
 
   text-align: center;
 }
+
+
+
+ /* on 67+% */
+ @media screen and (max-width: 3400px) {
+  .image-container {
+
+  }
+}
+
+
+/* on 125% */
+@media screen and (max-width: 1800px) { 
+  .image-container {
+     width: 50%;
+  }
+}
+
+/* on 175% */
+@media screen and (max-width: 1400px) { 
+  .image-container {
+    width: 60%;
+  }
+}
+
+ /* on 250% */
+@media screen and (max-width: 1000px) {
+  .image-container {
+   width: 70%;
+  }
+}
+
+
+ /* on 300% */
+ @media screen and (max-width: 800px) {
+  .image-container {
+   width: 80%;
+  }
+}
+
+ /* on 400% */
+ @media screen and (max-width: 600px) {
+  .image-container {
+   width: 90%;
+  }
+}
+
+
+
