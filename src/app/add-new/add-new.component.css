@@ -1,8 +1,12 @@
 .create-page {
-  height: 100vh;
+  height: calc(100vh - 164px);
 }
 
 .auth .container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   
     max-width: 50%;
     margin: 2rem auto;
@@ -17,6 +21,20 @@
     margin-bottom: 1rem;
     color: #333;
   }
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+  }
+
+  .image {
+  text-align: center;
+
+  }
+
   
   .auth label {
     display: block;
@@ -28,17 +46,18 @@
   .auth input,
   .auth select,
   .auth textarea {
-    width: 100%;
+    width: 90%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
+    
   }
   
   .auth input[type="submit"] {
     background-color: #007bff;
-    color: #fff;
+    color: #9e4343;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -49,7 +68,11 @@
   }
   
   .auth textarea {
-    resize: vertical;
+    
+    width: 90%;
+    min-height: 200px;
+    overflow: auto;
+    
   }
   
   .auth .category {
@@ -64,12 +87,82 @@
   }
 
   .image-preview {
+    text-align: center;
     margin-top: 1em;
   }
   
   .image-preview img {
-    max-width: 300px;
+    max-width: 270px;
     height: auto;
     border: 1px solid #ccc;
     border-radius: 8px;
   }
+
+
+
+
+/* on 100% */
+@media screen and (max-width: 2400px) {
+  .create-page {
+    padding-bottom: 20px;
+
+  }
+}
+
+/* on 110% */
+@media screen and (max-width: 2000px) {
+  .create-page {
+    padding-bottom: 120px;
+
+  }
+}
+
+/* on 125% */
+@media screen and (max-width: 1800px) { 
+  .create-page {
+    padding-bottom: 220px;
+  }
+}
+
+/* on 150% */
+@media screen and (max-width: 1600px) { 
+  .create-page {
+    padding-bottom: 370px;
+  }
+}
+
+/* on 175% */
+@media screen and (max-width: 1400px) { 
+  .create-page {
+    padding-bottom: 520px;
+  }
+}
+
+/* on 200% */
+@media screen and (max-width: 1200px) { 
+  .create-page {
+    padding-bottom: 570px;
+  }
+}
+
+ /* on 250% */
+@media screen and (max-width: 1000px) {
+  .create-page {
+    padding-bottom: 700px;
+  }
+}
+
+ /* on 300% */
+ @media screen and (max-width: 800px) {
+  .create-page {
+    padding-bottom: 780px;
+  }
+
+}
+
+ /* on 400% */
+ @media screen and (max-width: 600px) {
+  .create-page {
+    padding-bottom: 890px;
+  }
+}

@@ -266,16 +266,16 @@ button:disabled {
 
  /* on 90% */
  @media screen and (max-width: 2600px) {
-  /* .article-page  {
+  .article-page  {
     padding-bottom: 200px;
 
-  } */
+  }
 }
 
 /* on 100% */
 @media screen and (max-width: 2400px) {
   .article-page {
-    padding-bottom: 0px;
+    padding-bottom: 300px;
 
   }
 }
@@ -283,7 +283,7 @@ button:disabled {
 /* on 110% */
 @media screen and (max-width: 2000px) {
   .article-page {
-    padding-bottom: 100px;
+    padding-bottom: 420px;
 
   }
 }
@@ -291,43 +291,44 @@ button:disabled {
 /* on 125% */
 @media screen and (max-width: 1800px) { 
   .article-page {
-    padding-bottom: 220px;
+    padding-bottom: 520px;
   }
 }
 
 /* on 150% */
 @media screen and (max-width: 1600px) { 
   .article-page {
-    padding-bottom: 380px;
+    padding-bottom: 600px;
   }
 }
 
 /* on 175% */
 @media screen and (max-width: 1400px) { 
   .article-page {
-    padding-bottom: 470px;
+    padding-bottom: 670px;
   }
 }
 
 /* on 200% */
 @media screen and (max-width: 1200px) { 
   .article-page {
-    padding-bottom: 550px;
+    padding-bottom: 720px;
   }
 }
 
  /* on 250% */
 @media screen and (max-width: 1000px) {
   .article-page {
-    padding-bottom: 670px;
+    padding-bottom: 780px;
   }
 }
 
  /* on 300% */
  @media screen and (max-width: 800px) {
   .article-page {
-    padding-bottom: 730px;
+    padding-bottom: 830px;
   }
+
 }
 
  /* on 400% */
@@ -336,3 +337,4 @@ button:disabled {
     padding-bottom: 890px;
   }
 }
+
