@@ -10,7 +10,7 @@ background-color: brown;
 padding-top: 1em;
 padding-bottom: 0.7em;
 padding-left: 1em;
-z-index: 2;
+z-index: 1;
 
 }
 
@@ -42,4 +42,14 @@ header nav ul li a:hover {
  /* padding: 1em 0 1em 0; */
  border-radius: 10px;
   background-color: rgb(215, 11, 8);
+}
+
+
+/* on 250% */
+@media screen and (max-width: 800px) {
+  header {
+    position: relative; /* Switch to relative position */
+    box-shadow: none; /* Optional: Remove the shadow */
+  }
+
 }

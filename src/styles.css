@@ -19,13 +19,21 @@ body {
   /* min-height: 100vh; */
   font-family: "Poppins", sans-serif;
   background: linear-gradient(rgba(83, 66, 66, 0.3), rgba(160, 91, 91, 0.5));
+
   margin: 0;
+  padding-top: 44px;
 }
 
 main {
   /* height: calc(100vh - 120px); */
-padding-top: 44px;
+/* padding-top: 44px;
 
-padding-bottom: 76px;
+padding-bottom: 76px; */
 
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    padding-top: 0; /* Remove padding added for fixed headers */
+  }
 }

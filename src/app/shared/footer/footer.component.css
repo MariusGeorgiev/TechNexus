@@ -1,3 +1,7 @@
+footer {
+    margin-top: auto;
+}
+
 footer .container-footer {
     padding-left: 2em;
     padding-top: 1em;
@@ -15,7 +19,7 @@ footer .container-footer {
     justify-content: left;
     gap: 1em;
     align-items: flex-start;
-    z-index: 1;
+    z-index: -1;
 
   transform-origin: 0 100%;
 
