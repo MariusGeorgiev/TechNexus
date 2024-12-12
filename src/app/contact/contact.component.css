@@ -1,7 +1,7 @@
 .contact-page {
-    height: calc(100vh - 196px);
-    text-align: center;
-    padding: 2rem; 
+    height: calc(100vh - 120px);
+    min-height: 50px;
+    text-align: center; 
     color: rgb(77, 62, 62);
     box-sizing: border-box;  
     /* padding-top: 50px;
