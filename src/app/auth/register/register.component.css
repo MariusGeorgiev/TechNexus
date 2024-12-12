@@ -1,12 +1,13 @@
-
+.container {
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center; 
+}
 
 .container, .notification, .loader-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center; /* Align horizontally center */
-  align-items: center ;/* Align vertically center */
-  transform: translateY(-100px); 
 
+  /* display: flex;
+  justify-content: center;  */
 }
 
 .form-container {
@@ -18,9 +19,14 @@
   display: none;
 }
 
+.register {
+  width: 500px;
+  padding-top: 10em;
+}
+
 form.register {
-  width: 40%;
-  margin: 2em auto 0;
+
+  /* margin-top: 2em; */
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -153,7 +159,84 @@ p.error {
   animation: spin 2s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+  /* on 175% */
+  @media screen and (max-width: 1400px) { 
+    .container {
+      padding-bottom: 0px;
+      padding-right: 50px;
+      padding-left: 50px;
+    
+    }
+
+    .register {
+      padding-top: 70px;
+    }
+  }
+
+  /* on 200% */
+@media screen and (max-width: 1200px) { 
+  .container {
+    padding-bottom: 0px;
+    padding-right: 50px;
+    padding-left: 50px;
+  
+  }
+
+  .register {
+    padding-top: 40px;
+  }
+
+  
+}
+
+ /* on 250% */
+ @media screen and (max-width: 1000px) {
+
+  .container {
+    padding-bottom: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
+  
+  }
+
+  .login {
+    padding-top: 20px;
+  }
+}
+
+ /* on 300% */
+  @media screen and (max-width: 800px) { 
+    .container {
+      padding-bottom: 180px;
+      padding-right: 50px;
+      padding-left: 50px;
+    
+    }
+  
+    .login {
+      padding-top: 0px;
+    }
+  }
+
+  
+
+
+/* 0n 400% */
+@media screen and (max-width: 600px) {
+  .container {
+    padding-bottom: 320px; 
+    
+  }
+
+  fieldset {
+    max-width: 100%; 
+    
+  }
+
+  .register {
+    width: 350px;
+    padding-top: 20px;
+  }
+
 }
