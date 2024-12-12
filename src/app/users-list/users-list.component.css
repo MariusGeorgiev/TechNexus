@@ -1,26 +1,32 @@
 .user-stats-container {
-  height: calc(100vh - 196px);
+  height: calc(100vh - 120px);
   text-align: center;
-  padding: 2rem; 
+  padding-top: 20px;
   color: rgb(77, 62, 62);
   box-sizing: border-box;  
-  /* padding-top: 50px;
-  padding-bottom: 90px; */
+  /* padding-bottom: 960px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+
 h1 {
+  font-size: 2.5rem;
     text-align: center;
 }
 
 
 table {
-    width: 100%;
+  font-size: 1.2rem;
+    width: 70%;
     border-collapse: collapse;
     margin-top: 20px;
   }
   
   th, td {
-    border: 1px solid #ddd;
+    
+    border: 1px solid #550909;
     padding: 8px;
     text-align: center;
   }
@@ -31,21 +37,73 @@ table {
   
 
   .date-label {
-    color: #007bff;  /* Blue color for Date */
+    color: #007bff;
   }
   
   .time-label {
-    color: #28a745;  /* Green color for Time */
+    color: #28a745; 
   }
   
   .year-label {
-    color: #dc3545;  /* Red color for Year */
+    color: #dc3545;  
   }
 
   .loader {
-    height: calc(100vh - 296px);
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    height: calc(100vh - 320px);
     font-size: 5rem;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: center;
   }
+
+/* on 125% */
+  @media screen and (max-width: 1800px) { 
+    .user-stats-container {
+      padding-bottom: 800px; 
+    }
+  }
+
+  /* on 200% */
+@media screen and (max-width: 1200px) { 
+  .loader {
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+}
+
+ /* on 250% */
+ @media screen and (max-width: 1000px) {
+
+  .loader {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+ /* on 300% */
+  @media screen and (max-width: 800px) { 
+    .user-stats-container {
+      padding-bottom: 1050px; 
+    }
+
+    .loader {
+      padding-top: 75px;
+      padding-bottom: 124px;
+    }
+  }
+
+   /* on 400% */
+  @media screen and (max-width: 600px) {
+    .user-stats-container {
+      padding-bottom: 1600px;
+    }
+
+    .loader {
+      font-size: 3rem;
+      
+      padding-top: 30px;
+      padding-bottom: 100px;
+    }
+  }
+
+
