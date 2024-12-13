@@ -73,13 +73,15 @@ getArticlesByUser(userId: string): Observable<any[]> {
           const userId = userDoc.id;
           const user = {
             id: userId,
-            ...userDoc.data(), // includes username, tel, and createdAt
+            ...userDoc.data(),
             articleCount: 0
           };
   
           // Count articles created by the user
           const userArticlesQuery = query(articlesRef, where('userId', '==', userId));
           const userArticlesSnapshot = await getDocs(userArticlesQuery);
+          console.log('User data:', userArticlesSnapshot);
+          
           user.articleCount = userArticlesSnapshot.size;
   
           userData.push(user);
