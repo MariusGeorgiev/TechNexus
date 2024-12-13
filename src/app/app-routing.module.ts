@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent }, 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:userId', component: ProfileComponent },
   { path: 'users-list', component: UsersListComponent }, 
   { path: '**', component: NotFound404Component },  
 ];
