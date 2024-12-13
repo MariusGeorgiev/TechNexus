@@ -36,6 +36,18 @@ export class ArticleService {
     );
   }
 
+  // Get articles by userId
+getArticlesByUser(userId: string): Observable<any[]> {
+  const articlesRef = collection(this.firestore, 'articles');
+  const q = query(articlesRef, where('userId', '==', userId));  
+
+  return from(
+    getDocs(q).then(snapshot =>
+      snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) 
+    )
+  );
+}
+
   // Delete Article
   deleteArticle(articleId: string): Observable<void> {
     const articleRef = doc(this.firestore, 'articles', articleId);
@@ -78,11 +90,11 @@ export class ArticleService {
     );
   }
 
-   // Add Comment to details-article
+   // Add Comments to details-article
    addCommentToArticle(articleId: string, comment: any): Observable<void> {
     const articleRef = doc(this.firestore, 'articles', articleId);
     return from(updateDoc(articleRef, {
-      comments: arrayUnion(comment) // Adds comment to the array in Firestore
+      comments: arrayUnion(comment) 
     }));
   }
 
