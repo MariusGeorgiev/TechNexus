@@ -2,3 +2,29 @@
     text-align: center;
     height: calc(100vh - 120px)
 }
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+  }
+
+  .profile-picture > P {              
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+  }
+
+  .custom-file-upload {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;       
+    cursor: pointer;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #45a049;
+  }

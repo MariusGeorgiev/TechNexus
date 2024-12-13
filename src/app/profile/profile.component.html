@@ -1,3 +1,85 @@
-<div class="profile-page">
-<p>profile works!</p>
+ <div class="profile-page">
+
+    <h2>Profile</h2>
+    <form (ngSubmit)="updateUserData()">
+  
+        <div class="user-details">
+
+             <div class="profile-picture">
+                <img [src]="imagePreview || 'https://via.placeholder.com/200x200.png?text=?'" alt="Profile Picture" class="profile-img" />
+              
+                <p>
+                  <label for="fileUpload" class="custom-file-upload">
+                    Change Profile Picture
+                  </label>
+                  <input 
+                    id="fileUpload" 
+                    type="file" 
+                    (change)="onFileSelected($event)" 
+                    accept="image/*" 
+                    style="display: none;" />
+                </p>
+            </div>
+            <p><strong>Username:</strong> <input type="text" id="username" [(ngModel)]="newUsername" name="username" maxlength="20" required/></p>
+            <p><strong>Email:</strong> {{ userData.email || 'N/A' }}</p>
+
+            <p><strong>Phone:</strong> 
+              <select id="select-tel" class="tel">
+                 <option value="00359">+359</option>
+              </select>
+              <input type="text" id="tel" [(ngModel)]="newTel" name="tel" maxlength="9" required pattern="^\d{9}$"/></p>
+            
+            <p><strong>Age:</strong> <input id="age" [(ngModel)]="newAge" name="age" type="text" maxlength="2" required pattern="^\d{2}$"/></p>
+            <p><strong>Gender:</strong> 
+                <select id="gender" [(ngModel)]="newGender" name="gender">
+                    <option value="Male" [selected]="newGender === 'Male'">Male</option>
+                    <option value="Female" [selected]="newGender === 'Female'">Female</option>
+                </select>
+            </p>
+            <p><strong>Registered:</strong> {{ userData.registeredOn | date: 'in HH:mm on dd-MMMM-yyyy' }}</p>
+
+           
+
+        </div>
+
+        <button type="submit">Update your profile</button>
+    </form>
+
+            <!-- Mine News  -->
+            <h3>Your Articles</h3>
+            <span class="counter-comments">({{ userArticles.length || 0  }})</span>
+
+        <div *ngIf="userArticles.length > 0">
+            <table>
+
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Category</th>
+                  <th>Title</th>
+                  <th>Date of Creation</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr *ngFor="let article of userArticles; let i = index">
+                  <td>{{ i + 1 }} </td>
+                  <td>{{ article.category }}</td>
+                  <td><a [routerLink]="['/details-article', article.id]">{{ article.title }}</a> </td>
+                  <td>{{ article.time}} | {{ article.date}} </td>
+                  <td>{{ article.comments ? article.comments.length : '0' }} </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+        </div>
+
+        <div *ngIf="userArticles.length === 0">
+          <p>You have not created any articles yet.</p>
+        </div> 
+
 </div>
+  
+  
