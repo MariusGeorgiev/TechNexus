@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { getFirestore, collection, getDocs } from 'firebase/firestore';
-// import { initializeApp } from 'firebase/app';
-// import { environment } from '../../environments/environment';
 import { ArticleService } from '../services/article.service'; 
 import { Router } from '@angular/router';
 

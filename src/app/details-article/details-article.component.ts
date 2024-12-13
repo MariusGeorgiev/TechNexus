@@ -15,8 +15,9 @@ export class DetailsArticleComponent implements OnInit {
   article$: Observable<any> = of(null);
   createdByUsername: string = '';
   isCreator: boolean = false;
+
   // comment
-  user$: Observable<any> = this.authService.user$; // Get user info
+  user$: Observable<any> = this.authService.user$; 
   newComment: string = '';
 
   constructor(
@@ -29,7 +30,7 @@ export class DetailsArticleComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.articleId = params.get('id') || '';
-      this.loadArticleData();  // Load article data and comments
+      this.loadArticleData();  
     });
   }
 
@@ -55,14 +56,14 @@ export class DetailsArticleComponent implements OnInit {
     );
   }
 
+  // Comments
   addComment(): void {
     if (this.newComment.trim() && this.articleId) {
-      const user = this.authService.getCurrentUser(); // Get current user
+      const user = this.authService.getCurrentUser(); 
       if (user) {
-        // Fetch the username from the users collection
         this.articleService.getUser(user.uid).subscribe(userData => {
           const newComment = {
-            userName: userData?.username || user.displayName || user.email, // Use the username from Firestore or fallback to displayName or email
+            userName: userData?.username || user.displayName || user.email, 
             content: this.newComment.trim(),
             timestamp: new Date().toISOString()
           };
@@ -70,8 +71,8 @@ export class DetailsArticleComponent implements OnInit {
           // Add the comment to Firestore
           this.articleService.addCommentToArticle(this.articleId, newComment).subscribe({
             next: () => {
-              this.newComment = ''; // Clear the input after submission
-              this.loadArticleData();  // Re-fetch the article data to include the new comment
+              this.newComment = ''; 
+              this.loadArticleData();  
             },
             error: (err) => {
               console.error('Error adding comment:', err);

@@ -50,7 +50,6 @@ export class EditArticleComponent implements OnInit {
     if (file) {
       this.selectedImageFile = file;
 
-      // Generate a preview of the selected image
       const reader = new FileReader();
       reader.onload = (e) => {
         this.imagePreview = e.target?.result as string;

@@ -10,7 +10,7 @@
       <div *ngIf="isAuthenticated">
         <ul>
           <li><a routerLink="/add-new">Add new</a></li>
-          <li><a [routerLink]="['/profile']"> {{ user.username }} 's Profile</a></li>
+          <li><a [routerLink]="['/profile', user.uid]"> {{ user.username }} 's Profile</a></li>
         </ul>
       </div>
 
