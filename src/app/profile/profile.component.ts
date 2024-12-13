@@ -16,6 +16,8 @@ import { ArticleService } from '../services/article.service';
 export class ProfileComponent implements OnInit {
   userId: string = '';
   userData: any = {};
+  newCity: string = '';
+  newCountry: string = '';
   newAge: string = '';
   newGender: string = '';
   newUsername: string = '';
@@ -50,6 +52,8 @@ export class ProfileComponent implements OnInit {
         this.newGender = this.userData.gender || '';
         this.newUsername = this.userData.username || '';
         this.newTel = this.userData.tel || '';
+        this.newCity = this.userData.city || '';
+        this.newCountry = this.userData.country || '';
 
        if (this.userData.profilePicture) {
         this.imagePreview = this.userData.profilePicture;
@@ -93,6 +97,8 @@ export class ProfileComponent implements OnInit {
             tel: this.newTel,
             age: this.newAge,
             gender: this.newGender,
+            city: this.newCity,
+            country: this.newCountry,
             profilePicture: downloadURL
           }).then(() => {
             console.log('User data updated successfully');
@@ -111,6 +117,8 @@ export class ProfileComponent implements OnInit {
         username: this.newUsername,
         tel: this.newTel,
         age: this.newAge,
+        city: this.newCity,
+        country: this.newCountry,
         gender: this.newGender
       }).then(() => {
 

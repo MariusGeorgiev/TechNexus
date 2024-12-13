@@ -27,9 +27,12 @@
               <select id="select-tel" class="tel">
                  <option value="00359">+359</option>
               </select>
+
               <input type="text" id="tel" [(ngModel)]="newTel" name="tel" maxlength="9" required pattern="^\d{9}$"/></p>
-            
+              <p><strong>Country:</strong> <input [(ngModel)]="newCountry" type="text" id="country" name="country" minlength="2" maxlength="20"></p>
+              <p><strong>City:</strong> <input [(ngModel)]="newCity" type="text" id="city" name="city" minlength="2" maxlength="20"></p>
             <p><strong>Age:</strong> <input id="age" [(ngModel)]="newAge" name="age" type="text" maxlength="2" required pattern="^\d{2}$"/></p>
+            
             <p><strong>Gender:</strong> 
                 <select id="gender" [(ngModel)]="newGender" name="gender">
                     <option value="Male" [selected]="newGender === 'Male'">Male</option>
