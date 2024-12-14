@@ -20,6 +20,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   { path: 'hardware-articles', component: HardwareArticlesComponent },
   { path: 'software-articles', component: SoftwareArticlesComponent },
   { path: 'science-articles', component: ScienceArticlesComponent },
-  { path: 'add-new', component: AddNewComponent },
+  { path: 'add-new', component: AddNewComponent, canActivate: [AuthGuard] },
   { path: 'details-article/:id', component: DetailsArticleComponent },
   { path: 'edit-article/:id', component: EditArticleComponent },
   { path: 'about', component: AboutUsComponent },  
