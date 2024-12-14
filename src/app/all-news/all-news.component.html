@@ -4,34 +4,53 @@
   <app-loader></app-loader>
 </div>
 
+
 <ng-template #content>
-<div class="allNews-articles-container">
-  <h1>All News</h1>
+    <div class="allNews-articles-container">
+      
+      <ng-container *ngIf="articles.length > 0; else noNews">
 
- <!-- Article Counter -->
- <p *ngIf="articles.length > 0" class="article-count">
-  Total News: {{ articles.length }}
-</p>
+            <h1>All News</h1>
 
-<!-- Buttons to navigate to category pages -->
-<div class="category-buttons">
-  <button (click)="navigateToCategory('hardware')">Hardware Articles</button>
-  <button (click)="navigateToCategory('software')">Software Articles</button>
-  <button (click)="navigateToCategory('science')">Science Articles</button>
-</div>
+            <!-- Article Counter -->
+            <p class="article-count">
+              Total News: <span>{{ articles.length }}</span>
+            </p>
 
-<div class="all-articles" *ngFor="let article of articles">
-  <a [routerLink]="['/details-article', article.id]">
-    <div class="image-container">
-      <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
-      <div class="text-overlay">
-        <h2>{{ article.title }}</h2>
-        <p>Category: {{ article.category }}</p>
-        <p>{{ article.time }} | {{ article.date }}</p>
-      </div>
+            <!-- Buttons to navigate to category pages -->
+            <div class="category-buttons">
+              <button (click)="navigateToCategory('hardware')">Hardware News</button>
+              <button (click)="navigateToCategory('software')">Software News</button>
+              <button (click)="navigateToCategory('science')">Science News</button>
+            </div>
+
+             <!-- all news -->
+            <div class="all-articles" *ngFor="let article of articles">
+
+              <a class="aContainer" [routerLink]="['/details-article', article.id]">
+
+                <div class="image-container">
+                  <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
+                  <div class="text-overlay">
+                    <h2>{{ article.title }}</h2>
+                    <p>Category: {{ article.category }}</p>
+                    <p>{{ article.time }} | {{ article.date }}</p>
+                  </div>
+                </div>
+
+              </a>
+
+            </div>
+      </ng-container>
+
+      <!-- Message when no articles are available -->
+      <ng-template #noNews>
+    <p class="no-news-message">
+      No news available at the moment. <br>
+      Please check back later.
+    </p>
+  </ng-template>
+
+    
     </div>
-  </a>
-</div>
-
-</div>
 </ng-template>
