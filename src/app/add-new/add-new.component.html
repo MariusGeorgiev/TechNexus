@@ -12,6 +12,7 @@
 
         <label class="title" for="title">Title:</label>
         <input
+          maxlength="200"
           type="text"
           id="title"
           formControlName="title"
@@ -53,6 +54,7 @@
 
         <label for="summary">Post Content:</label>
         <textarea
+          maxlength="20000"
           id="summary"
           formControlName="summary"
           placeholder="Write your article content here..."
