@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, on
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,18 @@ export class AuthService {
   user$ = this.userSubject.asObservable();
 
   constructor(private router: Router) {
-    
     const auth = getAuth();
+    
+
     onAuthStateChanged(auth, (user) => {
       if (user) {
-
-        this.fetchUserData(user.uid);
+        this.fetchUserData(user.uid); 
       } else {
         this.userSubject.next(null); 
       }
     });
   }
+
 
 
   login(email: string, password: string) {
@@ -80,8 +82,7 @@ export class AuthService {
 
 
   getCurrentUser() {
-    const auth = getAuth();
-    return auth.currentUser;
+    return this.userSubject.getValue();
   }
 
 
@@ -92,4 +93,10 @@ export class AuthService {
       this.router.navigate(['/login']); 
     });
   }
+
+    checkLoginStatus(): Observable<boolean> {
+      const user = getAuth().currentUser; 
+      return of(!!user); 
+    }
+
 }
