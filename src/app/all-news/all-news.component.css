@@ -44,7 +44,7 @@ h1 {
 
  .category-buttons > button:hover {
   background-color: #2a0669;
-
+  transform: scale(1.2); 
   color: #b80000;
  }
 
@@ -53,6 +53,9 @@ h1 {
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
+}
+.all-articles:hover {
+  transform: scale(1.05); 
 }
 
 .aContainer {
@@ -80,6 +83,12 @@ h1 {
 }
 
 .text-overlay {
+  word-wrap: break-word;
+  white-space: normal;
+  width: 98.8%; 
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   font-size: 1.5em;
   position: absolute;
   top: 0; 
@@ -87,7 +96,7 @@ h1 {
   transform: translateX(-50%);  
   color: rgb(255, 255, 255);
   text-align: center;
-  width: 100%;  
+   
   background-color: rgba(0, 0, 0, 0.8); 
   border-radius: 20px 20px 0 0; 
 }
