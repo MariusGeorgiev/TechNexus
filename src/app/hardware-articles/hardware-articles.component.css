@@ -41,7 +41,7 @@ h1 {
 
  .category-buttons > button:hover {
   background-color: #2a0669;
-
+  transform: scale(1.1);
   color: #b80000;
  }
 
@@ -50,6 +50,10 @@ h1 {
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
+}
+
+.all-articles:hover {
+  transform: scale(1.05);
 }
 
 .aContainer {
@@ -77,6 +81,9 @@ h1 {
 }
 
 .text-overlay {
+  word-wrap: break-word;
+  white-space: normal;
+  width: 98.8%;
   font-size: 1.5em;
   position: absolute;
   top: 0; 
