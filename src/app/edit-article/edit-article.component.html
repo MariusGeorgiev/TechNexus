@@ -6,7 +6,7 @@
 
        
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" placeholder="Enter title..." [(ngModel)]="article.title" />
+        <input type="text" maxlength="200" id="title" name="title" placeholder="Enter title..." [(ngModel)]="article.title" />
 
        
         <div class="category">
@@ -43,7 +43,7 @@
 
 
         <label for="summary">Post content:</label>
-        <textarea id="summary" name="summary" [(ngModel)]="article.summary"></textarea>
+        <textarea id="summary" maxlength="20000" name="summary" [(ngModel)]="article.summary"></textarea>
 
         
         <input class="btn submit" type="submit" value="Save changes" />
@@ -54,7 +54,6 @@
     <div *ngIf="isLoading" class="loader">
       <p>Saving changes...</p>
       <app-loader></app-loader>
-
     </div>
 
   </section>
