@@ -14,6 +14,7 @@ import { ArticleService } from '../services/article.service';
 
 
 export class ProfileComponent implements OnInit {
+  loading: boolean = true;
   userId: string = '';
   userData: any = {};
   newCity: string = '';
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
   imagePreview: string | undefined;
   selectedImage: File | null = null;
   userArticles: any[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -38,10 +40,12 @@ export class ProfileComponent implements OnInit {
       this.userId = params.get('userId')!;
       this.fetchUserData(this.userId);
       this.fetchUserArticles(this.userId);
+      
     });
   }
 
   fetchUserData(userId: string): void {
+    this.loading = true;
     const db = getFirestore();
     const userRef = doc(db, 'users', userId);
     
@@ -54,10 +58,12 @@ export class ProfileComponent implements OnInit {
         this.newTel = this.userData.tel || '';
         this.newCity = this.userData.city || '';
         this.newCountry = this.userData.country || '';
-
+        
        if (this.userData.profilePicture) {
+        this.loading = false;
         this.imagePreview = this.userData.profilePicture;
       } else {
+        this.loading = false;
         this.imagePreview = undefined;  
       }
     } else {
@@ -81,10 +87,11 @@ export class ProfileComponent implements OnInit {
 
 
   updateUserData(): void {
+    this.loading = true;
     const db = getFirestore();
     const userRef = doc(db, 'users', this.userId);
+    
 
- 
     if (this.selectedImage) {
       const storage = getStorage();
       const imageRef = ref(storage, 'profile_pictures/' + this.userId);
@@ -101,6 +108,7 @@ export class ProfileComponent implements OnInit {
             country: this.newCountry,
             profilePicture: downloadURL
           }).then(() => {
+            this.loading = false;
             console.log('User data updated successfully');
             this.fetchUserData(this.userId);
             window.location.reload();
@@ -121,7 +129,7 @@ export class ProfileComponent implements OnInit {
         country: this.newCountry,
         gender: this.newGender
       }).then(() => {
-
+        this.loading = false;
         console.log('User data updated successfully');
         this.fetchUserData(this.userId);
         window.location.reload();
@@ -133,8 +141,10 @@ export class ProfileComponent implements OnInit {
 
 
 fetchUserArticles(userId: string): void {
+
   this.articleService.getArticlesByUser(userId).subscribe({
     next: (articles) => {
+      
       this.userArticles = articles;
     },
     error: (error) => {

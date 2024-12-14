@@ -1,4 +1,10 @@
+<div class="loader" *ngIf="loading; else loaded">
+  <app-loader></app-loader>
+</div>
+
+<ng-template #loaded>
  <div class="profile-page">
+ 
 
     <h2>Profile</h2>
     <form (ngSubmit)="updateUserData()">
@@ -83,6 +89,8 @@
           <p>You have not created any articles yet.</p>
         </div> 
 
+      
 </div>
-  
+</ng-template>
+
   
