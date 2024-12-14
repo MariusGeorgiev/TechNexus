@@ -23,14 +23,16 @@
               </div>
             </div>
 
-                <!-- Page with Edit and Delete only for creators -->
+             <!-- Page with Edit and Delete only for creators -->
                  
-                <div class="edit-del-buttons" *ngIf="isCreator">
-                  <button class="edit" (click)="editArticle()">Edit New</button>
-                  <button class="delete" (click)="deleteArticle()">Delete New</button>
-                </div>
-                
+             <div class="edit-del-buttons" *ngIf="isCreator">
+              <button class="edit" (click)="editArticle()">Edit New</button>
+              <button class="delete" (click)="deleteArticle()">Delete New</button>
+            </div>
+
               </div>
+
+            
 
 
                 <!-- comment section ! -->
@@ -39,7 +41,7 @@
 
                       <!-- for logged in users-->
                       <div class="comment-submiting-section" *ngIf="user$ | async as user; else loginPrompt">
-                        <textarea [(ngModel)]="newComment" placeholder="Add a comment..."></textarea>
+                        <textarea [(ngModel)]="newComment" maxlength="2000" placeholder="Add a comment..."></textarea>
                         <button class="submit-button" (click)="addComment()">Submit your comment</button>
                         
                       </div>
