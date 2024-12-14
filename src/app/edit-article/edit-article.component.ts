@@ -10,7 +10,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent implements OnInit {
-
+  isLoading: boolean = false; 
   articleId: string = '';
   article$: Observable<any> | null = null; 
 
@@ -65,6 +65,7 @@ export class EditArticleComponent implements OnInit {
 
 
   saveArticle(): void {
+    this.isLoading = true;
     if (this.article) {
 
 
@@ -83,7 +84,7 @@ export class EditArticleComponent implements OnInit {
             this.article.imageUrl = downloadURL;
 
             this.articleService.updateArticle(this.articleId, this.article).subscribe(() => {
-              alert('Article updated successfully!');
+              
               this.router.navigate(['/details-article', this.articleId]); 
             });
           }
@@ -91,7 +92,7 @@ export class EditArticleComponent implements OnInit {
       } else {
 
         this.articleService.updateArticle(this.articleId, this.article).subscribe(() => {
-          alert('Article updated successfully!');
+          
           this.router.navigate(['/details-article', this.articleId]); 
         });
       }

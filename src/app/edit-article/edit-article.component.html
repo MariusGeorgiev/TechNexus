@@ -19,27 +19,43 @@
           </select>
         </div>
 
-        
-        <label for="imageFile">Upload Image:</label>
-        <input
-          type="file"
-          id="imageFile"
-          (change)="onFileSelected($event)"
-        />
+        <div class="createAt">
+          <p>Date of Creation: <span>{{ article.time }} | {{ article.date }} </span></p>
+        </div>
 
-        
         <div *ngIf="imagePreview">
-          <p>Image Preview:</p>
           <img [src]="imagePreview" alt="Image Preview" style="max-width: 100%; border-radius: 8px;" />
         </div>
 
-        
-        <label for="summary">Article:</label>
+        <div class="changeImageButton">
+        <p>
+          <label for="fileUpload" class="custom-file-upload">
+            Change article image
+          </label>
+          <input 
+            id="fileUpload" 
+            type="file" 
+            (change)="onFileSelected($event)" 
+            accept="image/*" 
+            style="display: none;" />
+        </p>
+      </div>
+
+
+        <label for="summary">Post content:</label>
         <textarea id="summary" name="summary" [(ngModel)]="article.summary"></textarea>
 
         
-        <input class="btn submit" type="submit" value="Save Changes" />
+        <input class="btn submit" type="submit" value="Save changes" />
       </div>
     </form>
+
+
+    <div *ngIf="isLoading" class="loader">
+      <p>Saving changes...</p>
+      <app-loader></app-loader>
+
+    </div>
+
   </section>
 </div>

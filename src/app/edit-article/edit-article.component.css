@@ -105,9 +105,21 @@ select {
   margin-top: 1em;
 }
 
-.image-preview p {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #fff;
+.changeImageButton {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.custom-file-upload {
+  font-size: 1.2em;
+  background-color:  #2309c6; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;       
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  background-color: #3b0c7a;
 }
