@@ -1,36 +1,35 @@
 <div class="home-page">
-      <section id="section-one">
-<!-- 
-        <div class="background-image">
-          <img src="../../assets/Tech_Trends.jpg" alt="Background Image" />
-        </div> -->
 
         <div class="welcome-message">
-          <h2>Only in our website</h2>
-          <h2>Latest Tech-news</h2>
+          <h1>Only in our website</h1>
+          <h1>Latest Tech news</h1>
         </div>
 
       <!-- latest news container -->
-              <div class="home-page-new-content">
-                <h1>Latest News</h1>
+        <div class="home-page-new-content">
+              <h2>Latest News</h2>
 
-                <div id="latest-news">
-                  <div *ngFor="let article of articles" class="new">
-                    <div class="title">
-                      <a [routerLink]="['/details-article', article.id]">{{ article.title }}</a>
-                    </div>
+              <div id="latest-news">
 
+                <div *ngFor="let article of articles" class="new">
+
+                  <a [routerLink]="['/details-article', article.id]">
                     <div class="image-wrap">
-                      <img [src]="article.imageUrl" alt="Article image"/>
+                      <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
+                      <div class="title-overlay">{{ article.title }}</div>
                     </div>
-
+                
                     <div class="data-buttons">
-                      <a [routerLink]="['/details-article', article.id]">Details</a>
+                      <button>Details</button>
                     </div>
-                  </div>
+                  </a>
 
-                  <p *ngIf="articles.length === 0" class="no-articles">No news yet</p>
                 </div>
+
+                <p *ngIf="articles.length === 0" class="no-articles">No news yet</p>
+
               </div>
-      </section>
+
+        </div>
+
 </div>
