@@ -1,25 +1,54 @@
 <!-- Hardware Articles Page -->
-<div class="hardware-articles-container">
-  <h1>Hardware Articles</h1>
 
-  <!-- Article Counter -->
-  <p *ngIf="articles.length > 0" class="article-count">
-    Total News: {{ articles.length }}
-  </p>
-
-  <!-- Articles List -->
-  <div *ngIf="articles.length > 0; else noArticles">
-    <div *ngFor="let article of articles"> 
-      <a [routerLink]="['/details-article', article.id]">
-        <h2>{{ article.title }}</h2>
-        <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image"/>
-        <p>{{ article.time }} | {{ article.date }}</p>
-      </a>
-    </div>
-  </div>
-
-  <!-- No Articles Template -->
-  <ng-template #noArticles>
-    <p class="no-articles">No hardware articles available at the moment.</p>
-  </ng-template>
+<div class="loader" *ngIf="loading; else content">
+  <app-loader></app-loader>
 </div>
+
+<ng-template #content>
+    <div class="hardware-articles-container">
+
+      <ng-container *ngIf="articles.length > 0; else noNews">
+
+          <h1>Hardware</h1>
+
+          <!-- Article Counter -->
+          <p class="article-count">
+            Total News: <span>{{ articles.length }}</span>
+          </p>
+
+          <!-- Buttons to navigate to category pages -->
+          <div class="category-buttons">
+            <button (click)="navigateToCategory('software')">Software News</button>
+            <button (click)="navigateToCategory('science')">Science News</button>
+          </div>
+
+
+          <!-- Articles List -->
+          <div class="all-articles" *ngFor="let article of articles">
+
+            <a class="aContainer" [routerLink]="['/details-article', article.id]">
+
+              <div class="image-container">
+                <img [src]="article.imageUrl" alt="Image for {{ article.title }}" class="article-image" />
+                <div class="text-overlay">
+                  <h2>{{ article.title }}</h2>
+                  <p>{{ article.time }} | {{ article.date }}</p>
+                </div>
+              </div>
+
+            </a>
+
+          </div>
+
+        </ng-container>
+
+            <!-- Message when no articles are available -->
+      <ng-template #noNews>
+        <p class="no-news-message">
+          No hardware news available at the moment. <br>
+          Please check back later.
+        </p>
+      </ng-template>
+
+    </div>
+</ng-template>
