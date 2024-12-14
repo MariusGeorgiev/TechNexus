@@ -78,6 +78,10 @@ max-width: 200px;
   text-align: center;
 }
 
+.loader {
+  height: calc(100vh - 120px);
+}
+
 
 
  /* on 67+% */
