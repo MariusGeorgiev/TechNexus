@@ -40,17 +40,38 @@
                 <h3>Comments</h3>
 
                       <!-- for logged in users-->
-                      <div class="comment-submiting-section" *ngIf="user$ | async as user; else loginPrompt">
-                        <textarea [(ngModel)]="newComment" maxlength="2000" placeholder="Add a comment..."></textarea>
-                        <button class="submit-button" (click)="addComment()">Submit your comment</button>
-                        
-                      </div>
+                      <form #commentForm="ngForm">
+                        <div class="comment-submiting-section" *ngIf="user$ | async as user; else loginPrompt">
+                          <textarea 
+                            name="comment" 
+                            [(ngModel)]="newComment" 
+                            #comment="ngModel"
+                            minlength="10" 
+                            maxlength="300" 
+                            required 
+                            placeholder="Add a comment..."
+                          ></textarea>
+                      
+                          <p class="error-message" *ngIf="comment.errors?.['required'] && comment.touched">Comment is required.</p>
+                          <p class="error-message" *ngIf="comment.errors?.['minlength'] && comment.touched">
+                            Comment must be at least 10 characters.
+                          </p>
+                      
+                          <button 
+                            class="submit-button" 
+                            [disabled]="!commentForm.valid" 
+                            (click)="addComment()">Submit your comment
+                          </button>
+                        </div>
+                      </form>
+                      
 
                     <!-- all comments -->
                       
                       <ng-template #loginPrompt>
                         <p>You must be logged in to add a comment.</p>
                       </ng-template>
+                      
                       <span class="counter-comments">({{  article.comments?.length || 0  }})</span>
 
                     
