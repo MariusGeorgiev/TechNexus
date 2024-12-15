@@ -1,13 +1,79 @@
-.contact-page {
+/* .contact-page {
     height: calc(100vh - 120px);
     min-height: 50px;
     text-align: center; 
     color: rgb(77, 62, 62);
     box-sizing: border-box;  
-    /* padding-top: 50px;
-    padding-bottom: 90px; */
+   
 }
 
 .contact-page h1 {
     margin: 0;
-}
+} */
+
+.contact-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .profile-picture img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .contact-details p {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  .contact-details a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .email-form {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .email-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .email-form input,
+  .email-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .email-form button {
+    padding: 10px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .email-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .google-map iframe {
+    border: 0;
+    border-radius: 8px;
+  }
+  
