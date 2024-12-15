@@ -13,7 +13,7 @@ export class AuthService {
   user$ = this.userSubject.asObservable();
 
   constructor(private router: Router) {
-    const auth = getAuth();
+  const auth = getAuth();
     
 
     onAuthStateChanged(auth, (user) => {
@@ -80,12 +80,31 @@ export class AuthService {
     });
   }
 
-
+  // get user data from firebase authentication
   getCurrentUser() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user) {
+      console.log('Current user:', { email: user.email, uid: user.uid });
+      return { email: user.email, uid: user.uid };
+    } else {
+      console.log('No user logged in');
+      return null; 
+    }
+  }
+
+  getUserEmail() {
+    const user = this.getCurrentUser();
+    return user ? user.email : null; 
+  }
+
+  // get user data from firestore users collection
+  getCurrentCollectionUser() {
+    console.log("Get current user", this.userSubject.getValue());
     return this.userSubject.getValue();
   }
 
-
+  
   logout() {
     const auth = getAuth();
     return signOut(auth).then(() => {
