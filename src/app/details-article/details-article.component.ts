@@ -44,7 +44,7 @@ export class DetailsArticleComponent implements OnInit {
               this.createdByUsername = user?.username || 'Unknown User';
             }),
             tap(() => {
-              const currentUser = this.authService.getCurrentUser();
+              const currentUser = this.authService.getCurrentCollectionUser();
               this.isCreator = currentUser?.uid === article.userId;
             }),
             switchMap(() => of(article))
@@ -59,7 +59,7 @@ export class DetailsArticleComponent implements OnInit {
   // Comments
   addComment(): void {
     if (this.newComment.trim() && this.articleId) {
-      const user = this.authService.getCurrentUser(); 
+      const user = this.authService.getCurrentCollectionUser(); 
       if (user) {
         this.articleService.getUser(user.uid).subscribe(userData => {
           const newComment = {
