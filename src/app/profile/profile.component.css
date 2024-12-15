@@ -58,21 +58,49 @@
     padding-top: 10px;
   }
 
+  .table-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+
   table {
+  
+    width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; 
+    table-layout: fixed;
+  
   }
   
   th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     
     text-align: center;
+  }
+
+  .small-column-1 {
+    width: 5.5%; 
+  }
+  .small-column-2 {
+    width: 10.5%; 
+  }
+
+  
+  .large-column {
+    width: 60%; 
+  }
+
+  .small-column-3 {
+    width: 8.5%; 
+  }
+  .small-column-4 {
+    width: 7.5%; 
   }
   
   th {
     background-color: #e0d8d8;
-    font-size: 1.4em; 
+    font-size: 1.2em; 
    
   }
   

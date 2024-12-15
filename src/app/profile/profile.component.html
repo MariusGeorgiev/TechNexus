@@ -60,26 +60,28 @@
             <h3>Your Articles</h3>
             <span class="counter-comments">({{ userArticles.length || 0  }})</span>
 
-        <div *ngIf="userArticles.length > 0">
+        <div class="table-container" *ngIf="userArticles.length > 0">
             <table>
-
+            
               <thead>
                 <tr>
-                  <th>№</th>
-                  <th>Category</th>
-                  <th>Title</th>
-                  <th>Date of Creation</th>
-                  <th>Comments</th>
+                  <th class="small-column-1">№</th>
+                  <th class="small-column-2">Category</th>
+                  <th class="large-column">Title</th>
+                  <th class="small-column-3">Date of Creation</th>
+                  <th class="small-column-4">Comments</th>
                 </tr>
+              
               </thead>
               
               <tbody>
                 <tr  *ngFor="let article of userArticles; let i = index">
-                  <td>{{ i + 1 }} </td>
-                  <td>{{ article.category }}</td>
-                  <td><a class="aTitle" [routerLink]="['/details-article', article.id]">{{ article.title }}</a> </td>
-                  <td>{{ article.time}} | {{ article.date}} </td>
-                  <td>{{ article.comments ? article.comments.length : '0' }} </td>
+                  <td class="small-column-1">{{ i + 1 }} </td>
+                  <td class="small-column-2">{{ article.category }}</td>
+                  <td class="large-column">
+                    <a class="aTitle" [routerLink]="['/details-article', article.id]">{{ article.title }}</a> </td>
+                  <td class="small-column-3">{{ article.time}}<br> {{ article.date}} </td>
+                  <td class="small-column-4">{{ article.comments ? article.comments.length : '0' }} </td>
                 </tr>
               </tbody>
 
