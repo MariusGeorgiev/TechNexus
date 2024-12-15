@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { getFirestore, collection, query, where, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Router } from '@angular/router';
@@ -26,16 +26,18 @@ export class ProfileComponent implements OnInit {
   imagePreview: string | undefined;
   selectedImage: File | null = null;
   userArticles: any[] = [];
+  userEmail: string | null = null; 
 
 
   constructor(
     private route: ActivatedRoute,
-    // private authService: AuthService,
+    private authService: AuthService,
     private articleService: ArticleService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.userEmail = this.authService.getUserEmail();
     this.route.paramMap.subscribe((params) => {
       this.userId = params.get('userId')!;
       this.fetchUserData(this.userId);
