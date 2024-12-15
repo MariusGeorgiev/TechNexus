@@ -11,15 +11,22 @@ import { AuthService } from '../services/auth.service';
 export class ContactComponent implements OnInit {
   successMessage: string = '';
   errorMessage: string = '';
-  userEmail: string = ''; 
+  userEmail: string = '';
+  userName: string = '';
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     const email = this.authService.getUserEmail();
+    const currentUsername = this.authService.getCurrentCollectionUser();
     if (email) {
       this.userEmail = email;
     }
+
+    if (currentUsername) {
+      this.userName = currentUsername.username;
+    }
+
   }
   
 
@@ -29,7 +36,7 @@ export class ContactComponent implements OnInit {
     const form = event.target as HTMLFormElement;
 
     const emailParams = {
-      from_name: form['from_name'].value,  
+      from_name: this.userName,  
       from_email: this.userEmail,  
       message: form['message'].value
     };
