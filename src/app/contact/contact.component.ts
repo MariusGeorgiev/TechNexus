@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import emailjs from '@emailjs/browser';
-import { AuthService } from '../services/auth.service'; 
+import { AuthService } from '../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -42,10 +43,10 @@ export class ContactComponent implements OnInit {
     };
 
     emailjs.send(
-      'service_qauxr42',   
-      'template_szlnkrm',  
+      environment.emailjs.serviceId,   
+      environment.emailjs.templateId,  
       emailParams,
-      'ta0FelLgIvC8hcghh' 
+      environment.emailjs.userId
 
     ).then(
       (response) => {
@@ -60,4 +61,5 @@ export class ContactComponent implements OnInit {
     );
   }
 }
+
 

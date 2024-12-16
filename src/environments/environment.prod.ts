@@ -1,5 +1,10 @@
 export const environment = {
     production: false,
+    emailjs: {
+        serviceId: 'service_qauxr42',
+        templateId: 'template_szlnkrm',
+        userId: 'ta0FelLgIvC8hcghh'
+      },
     firebaseConfig: {
         apiKey: "AIzaSyDlFGtRsR4pJ3hpEjpMWxKxYwU8i0SaKPA",
         authDomain: "technexus-angularproject.firebaseapp.com",
