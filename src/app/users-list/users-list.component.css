@@ -57,12 +57,41 @@ table {
     .user-stats-container {
       padding-bottom: 800px; 
     }
+    table {
+      width: 50%;
+    }
   }
+
+   /* on 175% */
+   @media screen and (max-width: 1400px) { 
+    table {
+      width: 60%;
+    }
+  }
+
+   /* on 200% */
+   @media screen and (max-width: 1200px) { 
+    table {
+      width: 70%;
+    }
+  }
+
+    /* on 250% */
+    @media screen and (max-width: 1000px) { 
+      .user-stats-container {
+        padding-bottom: 1000px; 
+      }
+    }
+
+
 
  /* on 300% */
   @media screen and (max-width: 800px) { 
     .user-stats-container {
       padding-bottom: 1050px; 
+    }
+    table {
+      width: 80%;
     }
 
   }
@@ -71,6 +100,10 @@ table {
   @media screen and (max-width: 600px) {
     .user-stats-container {
       padding-bottom: 1600px;
+    }
+
+    table {
+      width: 90%;
     }
 
   } 
