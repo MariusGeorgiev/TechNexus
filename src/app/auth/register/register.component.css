@@ -20,19 +20,21 @@
 }
 
 .register {
+  
   width: 500px;
   padding-top: 10em;
 }
 
 form.register {
-
+ 
   /* margin-top: 2em; */
   text-align: center;
   font-family: Arial, sans-serif;
 }
 
 form.register fieldset {
-    border-radius: 0.3em;
+  
+    border-radius: 2em;
     padding: 1.5em; 
     background-color: brown;
     border: 1px solid #03763b;
@@ -134,15 +136,17 @@ p.error {
   background-color: #4caf50; 
   color: white;
   padding: 10px;
+  margin-top: 200px;
   text-align: center;
   border-radius: 5px;
   position: fixed;
+  font-size: 4em;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
   width: 80%;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 .loader-container {

@@ -24,7 +24,7 @@ form.login {
   }
   
   form.login fieldset {
-    border-radius: 0.3em;
+    border-radius: 2em;
     padding: 1.5em;
     background-color: brown;
     border: 1px solid #03763b;
