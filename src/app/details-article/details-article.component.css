@@ -73,6 +73,7 @@ img {
   margin-bottom: 20px;
   transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
   transform-origin: center center; 
+  object-fit: cover;
   cursor: pointer;
   z-index: 0; 
 }
