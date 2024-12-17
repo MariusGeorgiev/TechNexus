@@ -4,8 +4,9 @@
 
 <div class="content-of-users">
 <ng-template #loaded>
+  <h1>Registered Users and Article Statistics</h1>
   <div class="user-stats-container">
-    <h1>Registered Users and Article Statistics</h1>
+    
     <table>
       <thead>
         <tr>
@@ -17,7 +18,7 @@
           <th>Registered On</th>
           <th>Articles Created</th>
         </tr>
-      </thead>
+      </thead> 
       <tbody>
         <tr *ngFor="let user of usersWithStats; let i = index">
           <td>{{ i + 1 }}</td>
