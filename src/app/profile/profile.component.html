@@ -5,8 +5,11 @@
 <ng-template #loaded>
  <div class="profile-page">
  
+  <h1>Profile</h1>
+
+  <div class="p-info-and-table">
       <div class="profile-info">
-          <h2>Profile</h2>
+          
           <form (ngSubmit)="updateUserData()">
         
               <div class="user-details">
@@ -26,44 +29,60 @@
                           style="display: none;" />
                       </p>
                   </div>
-                  <p><strong>Username:</strong> <input type="text" id="username" [(ngModel)]="newUsername" name="username" maxlength="20" required/></p>
-                  <p><strong>Email:</strong> {{ userEmail || 'N/A' }}</p>
 
-                  <p><strong>Phone:</strong> 
+                  <div class="profile-data">
+                  <p><strong>Username:</strong> <input class="data" type="text" id="username" [(ngModel)]="newUsername" name="username" maxlength="20" required/></p>
+                  <p><strong>Email:</strong> <span class="data">{{ userEmail || 'N/A' }}</span></p>
+
+                  <p><strong>Phone:</strong>
+                    <span>
                     <select id="select-tel" class="tel">
-                      <option value="00359">+359</option>
+                      <option class="data" value="00359">+359</option>
                     </select>
 
-                    <input type="text" id="tel" [(ngModel)]="newTel" name="tel" maxlength="9" required pattern="^\d{9}$"/></p>
-                    <p><strong>Country:</strong> <input [(ngModel)]="newCountry" type="text" id="country" name="country" minlength="2" maxlength="20"></p>
-                    <p><strong>City:</strong> <input [(ngModel)]="newCity" type="text" id="city" name="city" minlength="2" maxlength="20"></p>
-                  <p><strong>Age:</strong> <input id="age" [(ngModel)]="newAge" name="age" type="text" maxlength="2" required pattern="^\d{2}$"/></p>
+                    <input class="data" type="text" id="tel" [(ngModel)]="newTel" name="tel" maxlength="9" required pattern="^\d{9}$"/>
+                    </span>
+                  </p>
+                    <p><strong>Country:</strong> <input class="data" [(ngModel)]="newCountry" type="text" id="country" name="country" minlength="2" maxlength="20"></p>
+                    <p><strong>City:</strong> <input class="data" [(ngModel)]="newCity" type="text" id="city" name="city" minlength="2" maxlength="20"></p>
+                  <p><strong>Age:</strong> <input class="data" id="age" [(ngModel)]="newAge" name="age" type="text" maxlength="2" required pattern="^\d{2}$"/></p>
                   
                   <p><strong>Gender:</strong> 
-                      <select id="gender" [(ngModel)]="newGender" name="gender">
+                      <select class="data" id="gender" [(ngModel)]="newGender" name="gender">
                           <option value="Male" [selected]="newGender === 'Male'">Male</option>
                           <option value="Female" [selected]="newGender === 'Female'">Female</option>
                       </select>
                   </p>
-                  <p><strong>Registered:</strong> {{ userData.registeredOn | date: 'in HH:mm on dd-MMMM-yyyy' }}</p>
+                  
+                  <p><strong>Registered:</strong> 
+                    <span class="data">{{ userData.registeredOn | date: 'in HH:mm on dd-MMMM-yyyy' }}</span>
+                  </p>
 
-                
+                </div>
 
               </div>
 
-              <button type="submit">Update your profile</button>
+              <button class="update" type="submit">Update your profile</button>
           </form>
         </div>
 
+
+
         <div class="mine-articles">
             <!-- Mine News  -->
-            <h3>Your Articles</h3>
-            <span class="counter-comments">({{ userArticles.length || 0  }})</span>
+            
+            
 
         <div class="table-container" *ngIf="userArticles.length > 0">
             <table>
-            
               <thead>
+                <tr>
+                  <th class="master-row" colspan="5">
+                    <h3>Your Articles   <span class="counter-comments">({{ userArticles.length || 0  }})</span></h3>
+                    
+                  </th>
+                </tr>
+                
                 <tr>
                   <th class="small-column-1">№</th>
                   <th class="small-column-2">Category</th>
@@ -89,12 +108,14 @@
 
         </div>
 
-        <div *ngIf="userArticles.length === 0">
+        <div class="no-news" *ngIf="userArticles.length === 0">
           <p>You have not created any articles yet.</p>
         </div> 
+
+      </div>
       </div>
 
-      
+       
 </div>
 </ng-template>
 
