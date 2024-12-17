@@ -19,7 +19,7 @@
 
               <div class="article-content">
                 <p><strong>Post Content:</strong></p>
-                <p class="article-text">{{ article.summary }}</p>
+                <p class="article-text" [innerHTML]="article.summary | lineBreaks">{{ article.summary }}</p>
               </div>
             </div>
 

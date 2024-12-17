@@ -32,6 +32,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { LineBreaksPipe } from './pipes/line-breaks.pipe';
+
 
 
 
@@ -56,7 +58,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    UsersListComponent
+    UsersListComponent,
+    LineBreaksPipe
   ],
   imports: [
     BrowserModule,
