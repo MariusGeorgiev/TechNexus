@@ -1,27 +1,123 @@
-# TechNexus
+# Tech Nexus Project Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Project Overview
+Tech Nexus is a tech news platform that enables users to read, create, edit, and delete categorized news articles. It also supports user comments, profile management, and user statistics, making it an interactive and user-friendly platform.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## **Technologies Used**
 
-## Code scaffolding
+### **Frameworks and Libraries**
+- **Frontend**: Angular 16.2
+- **Backend**: Firebase
+  - Firebase Authentication
+  - Firestore Database
+  - Firebase Storage (for images)
+- **Styling**: CSS3, Flexbox, Grid Layout
+- **Additional Libraries**:
+  - **EmailJS**: For sending emails in the contact form
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### **Key Dependencies**
+- **Angular Modules**: `FormsModule`, `ReactiveFormsModule`, `HttpClientModule`.
+- **Firebase**: Integration for Authentication, Firestore, and Storage.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## **Functionality**
 
-## Running unit tests
+1. **Authentication**
+   - User Registration and Login (Firebase Authentication).
+   - Auth Guards for restricted access (edit/delete/create).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Article Management**
+   - Browse articles categorized as Hardware, Software, and Science.
+   - View article details with comments (comments only for logged users).
+   - Create, Edit, and Delete articles (only by authors).
 
-## Running end-to-end tests
+3. **Comments Section**
+   - Add and view comments under each article.
+   - Timestamp and username are displayed with comments.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Profile Management**
+   - Update user details: username, profile image, phone number, etc.
+   - View a list of created articles "news"
 
-## Further help
+5. **User Statistics**
+   - Display user details such as number of created articles, registration date, etc.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+6. **Additional Pages**
+   - **Contact Page**: 
+    - Integrated with EmailJS to send messages.
+    - Google Map integration to display location.
+   - **About Page**: Informative section about the platform.
+
+---
+
+## **How to Run the Project**
+
+### 1. **Clone the Repository**
+```bash
+git clone <repository-url>
+cd tech-nexus
+```
+
+### 2. **Install Dependencies**
+```bash
+npm install
+```
+
+### 3. **Run the Project**
+```bash
+npx ng serve 
+```
+
+or
+
+```bash
+npm run start 
+```
+- Open the browser at `http://localhost:4200`.
+
+---
+
+## **Recommended Requirements**
+
+Tech Nexus is tested and optimized for the following:
+
+- **Display Resolution**: 
+  - Tested at **2560x1440** resolution with **115% scaling**. 
+  - Works well on **1920x1080** resolution with **100% scaling** and higher resolutions.
+  
+- **Supported Browsers**: 
+  - Google Chrome
+  - Mozilla Firefox
+  - Microsoft Edge
+  - Safari (MacOS)
+
+These configurations ensure the best user experience with optimal UI layout and performance. Other display resolutions and browsers may also work, but some layout or rendering issues may arise.
+
+
+## **Architecture**
+
+### **Routing Architecture**
+- **Public Routes**: Home, All News, Details Article , About Us, Contact, Users Stats.
+- **Protected Routes** (AuthGuard): Add New, Edit Article, Profile.
+
+---
+
+<!-- ## **Screenshots**
+_need to add later_ -->
+
+---
+
+## **Future Improvements**
+- Add pagination for articles.
+- Implement a like/dislike feature for articles and comments.
+- Add **dual language support** (English and Bulgarian) to improve accessibility to a broader audience.
+- Introduce dark mode for better user experience.
+- Notifications for new comments on articles.
+
+---
+
+## **License**
+This project is licensed under the MIT License.

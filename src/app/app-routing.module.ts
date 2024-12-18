@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'science-articles', component: ScienceArticlesComponent },
   { path: 'add-new', component: AddNewComponent, canActivate: [AuthGuard] },
   { path: 'details-article/:id', component: DetailsArticleComponent },
-  { path: 'edit-article/:id', component: EditArticleComponent },
+  { path: 'edit-article/:id', component: EditArticleComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutUsComponent },  
   { path: 'contact', component: ContactComponent }, 
   { path: 'login', component: LoginComponent },
