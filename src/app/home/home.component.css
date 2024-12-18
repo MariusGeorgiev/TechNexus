@@ -159,21 +159,6 @@ justify-content: space-evenly;
 }
 
 
-/* @media (max-width: 768px) {
-  .welcome-message h1 {
-    font-size: 2em;
-  }
-
-  .new {
-    width: 100%; 
-  }
-
-  #latest-news {
-    max-height: none; 
-  }
-} */
-
-
 /* on 110% */
 @media screen and (max-width: 2000px) {
   .home-page {
