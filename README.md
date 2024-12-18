@@ -58,8 +58,8 @@ Tech Nexus is a tech news platform that enables users to read, create, edit, and
 ### 1. **Clone the Repository**
 ```bash
 git clone <https://github.com/MariusGeorgiev/TechNexus.git>
-cd tech-nexus
 ```
+or download like a zip
 
 ### 2. **Install Dependencies**
 ```bash
