@@ -31,11 +31,11 @@ Tech Nexus is a tech news platform that enables users to read, create, edit, and
 
 2. **Article Management**
    - Browse articles categorized as Hardware, Software, and Science.
-   - View article details with comments (comments only for logged users).
+   - View article details with comments.
    - Create, Edit, and Delete articles (only by authors).
 
 3. **Comments Section**
-   - Add and view comments under each article.
+   - Add and view comments under each article (add comments only for logged users).
    - Timestamp and username are displayed with comments.
 
 4. **Profile Management**
@@ -57,7 +57,7 @@ Tech Nexus is a tech news platform that enables users to read, create, edit, and
 
 ### 1. **Clone the Repository**
 ```bash
-git clone <repository-url>
+git clone <https://github.com/MariusGeorgiev/TechNexus.git>
 cd tech-nexus
 ```
 
@@ -96,6 +96,7 @@ Tech Nexus is tested and optimized for the following:
 
 These configurations ensure the best user experience with optimal UI layout and performance. Other display resolutions and browsers may also work, but some layout or rendering issues may arise.
 
+---
 
 ## **Architecture**
 
