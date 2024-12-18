@@ -23,8 +23,8 @@
           <p>Date of Creation: <span>{{ article.time }} | {{ article.date }} </span></p>
         </div>
 
-        <div *ngIf="imagePreview">
-          <img [src]="imagePreview" alt="Image Preview" style="max-width: 100%; border-radius: 8px;" />
+        <div class="imagePreview" *ngIf="imagePreview">
+          <img [src]="imagePreview" alt="Image Preview" />
         </div>
 
         <div class="changeImageButton">
