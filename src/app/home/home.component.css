@@ -40,16 +40,16 @@ justify-content: space-evenly;
 
 
 .home-page-new-content {
-  background-color: #5d5876;
+  background-color: #7880b1;
   padding: 40px;
   border-radius: 30px;
-  /* box-shadow: 0 4px 6px rgba(49, 10, 10, 0.1); */
+  box-shadow: 0px 0px 32px 0px #2e5c8e, -14px -14px 20px #a0acc0;
 }
 
 .home-page-new-content h2 {
   font-size: 2.5em;
   margin-bottom: 25px;
-  color: #69a06e;
+  color: #82b286;
   text-align: center;
 }
 
@@ -66,7 +66,7 @@ justify-content: space-evenly;
 .new {
   position: relative; 
   background: #7c87a2;
-  border: 1px solid #37247c;
+  /* border: 1px solid #37247c; */
   border-radius: 20px;
   overflow: hidden;
   width: 480px; 
@@ -149,7 +149,7 @@ justify-content: space-evenly;
   background-color: #ff6347;
 }
 
-
+ 
 .no-articles {
   text-align: center;
   font-size: 4.5em;
@@ -159,7 +159,7 @@ justify-content: space-evenly;
 }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .welcome-message h1 {
     font-size: 2em;
   }
@@ -171,4 +171,62 @@ justify-content: space-evenly;
   #latest-news {
     max-height: none; 
   }
+} */
+
+
+/* on 110% */
+@media screen and (max-width: 2000px) {
+  .home-page {
+
+    padding-bottom: 50px;
+  }
 }
+
+/* on 125% */
+@media screen and (max-width: 1800px) { 
+  .home-page {
+
+    padding-bottom: 350px;
+  }
+
+}
+
+/* on 150% */
+@media screen and (max-width: 1600px) { 
+  .home-page {
+
+    padding-bottom: 500px;
+  }
+}
+
+/* on 175% */
+@media screen and (max-width: 1400px) { 
+  .home-page {
+
+    padding-bottom: 650px;
+  }
+}
+
+/* on 200% */
+@media screen and (max-width: 1200px) { 
+  .home-page {
+
+    padding-bottom: 1050px;
+  }
+}
+
+ /* on 250% */
+@media screen and (max-width: 1000px) {
+  .home-page {
+
+    padding-bottom: 1150px;
+  }
+}
+
+ /* on 300% */
+ @media screen and (max-width: 800px) {
+  .home-page {
+
+    padding-bottom: 1350px;
+  }
+ }
