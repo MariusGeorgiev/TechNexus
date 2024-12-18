@@ -2,31 +2,35 @@
   height: calc(100vh - 120px);
   
 }
+
 .create-page {
-  height: calc(100vh - 164px);
+  height: calc(100vh - 160px);
 }
+
 
 .auth .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  
     max-width: 50%;
+  max-height: 1200px;
     margin: 2rem auto;
     padding: 1.5rem;
-    background-color: #f4f4f4;
+    margin-top: 20px;
+    background-color: #7880b1;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 32px 0px #2e5c8e, -14px -14px 20px #a0acc0;
   }
+
+
   
   .auth h1 {
     text-align: center;
     margin-bottom: 1rem;
-    color: #333;
+    color: white;
   }
 
-  .category {
+  .category { 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,12 +38,29 @@
     width: 160px;
   }
 
-  .image {
+  .image > label{
   text-align: center;
+  }
+
+  .image-preview {
+    padding-bottom: 15px;
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  .image-preview img {
+    max-width: 270px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .image-preview > p{
+    color: white;
+    padding-bottom: 5px;
 
   }
 
-  
   .auth label {
     display: block;
     margin-bottom: 0.5rem;
@@ -82,27 +103,41 @@
   .auth .category {
     margin-bottom: 1.5rem;
   }
+
+  .btn {
+    font-size: 1.2em;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: #db4141;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
   
-  .auth .btn {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    text-align: center;
+  .btn:hover {
+    scale: 1.1;
+    background-color: rgb(246, 0, 0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   }
 
-  .image-preview {
-    text-align: center;
-    margin-top: 1em;
-  }
+
+  .image > input {
+    background-color: #4fa63a;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 10px;
+    align-items: center;
+    color: white;
   
-  .image-preview img {
-    max-width: 270px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
   }
 
-
+  
+  .image > input:hover {
+    background-color: #207a0c;
+  }
 
 
 /* on 100% */

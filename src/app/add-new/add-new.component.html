@@ -10,7 +10,7 @@
       <div class="container">
         <h1>Create New</h1>
 
-        <label class="title" for="title">Title:</label>
+        <label class="title" style="color: white;" for="title">Title:</label>
         <input
           maxlength="200"
           type="text"
@@ -24,7 +24,7 @@
         </div>
 
         <div class="category">
-          <label for="category">Category:</label>
+          <label style="color: white;" for="category">Category:</label>
           <select formControlName="category" id="category" required>
             <option value="">Select a category</option>
             <option value="Hardware">Hardware</option>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="image">
-        <label for="image">Select an Image:</label>
+        <label for="image" style="color: white;">Select an Image:</label>
         <input
           type="file"
           id="image"
@@ -51,8 +51,8 @@
           <img [src]="selectedImageUrl" alt="Selected Image" />
         </div>
 
-
-        <label for="summary">Post Content:</label>
+ 
+        <label for="summary" style="color: white;">Post Content:</label>
         <textarea
           maxlength="20000"
           id="summary"
