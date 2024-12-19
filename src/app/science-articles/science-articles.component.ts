@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-science-articles',
   templateUrl: './science-articles.component.html',
-  styleUrls: ['./science-articles.component.css']
+  styleUrls: ['../all-news/category-articles.component.css']
 })
 export class ScienceArticlesComponent implements OnInit {
   articles: any[] = [];

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-hardware-articles',
   templateUrl: './hardware-articles.component.html',
-  styleUrls: ['./hardware-articles.component.css']
+  styleUrls: ['../all-news/category-articles.component.css']
 })
 export class HardwareArticlesComponent implements OnInit {
   articles: any[] = [];
