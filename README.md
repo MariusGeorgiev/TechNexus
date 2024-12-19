@@ -109,7 +109,7 @@ These configurations ensure the best user experience with optimal UI layout and 
 ## **Architecture**
 
 ### **Routing Architecture**
-- **Public Routes**: Home, All News, Details Article , About Us, Contact, Users Stats.
+- **Public Routes**: Home, All News, Hardware Articles, Software Articles, Science Articles, Details Article , About Us, Contact, Users Stats.
 - **Non-Public Routes**: Add New, Edit Article, Profile.
 
 ---
