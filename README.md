@@ -114,8 +114,25 @@ These configurations ensure the best user experience with optimal UI layout and 
 
 ---
 
-<!-- ## **Screenshots**
-_need to add later_ -->
+## **Screenshots**
+
+### **Home Page**
+<img src="src/assets/home.png" alt="Home Page" width="600px">
+
+### **All News Page**
+<img src="src/assets/all-news.png" alt="All News Page" width="600px">
+
+### **Software Category Page**
+<img src="src/assets/category.png" alt="Software Category Page" width="600px">
+
+### **Details Article Page**
+<img src="src/assets/details.png" alt="Details Page" width="600px">
+
+### **Profile Management**
+<img src="src/assets/profile.png" alt="Profile Page" width="600px">
+
+### **Users Stats Page**
+<img src="src/assets/users-stats.png" alt="User Stats Page" width="600px">
 
 ---
 
