@@ -1,9 +1,6 @@
 .allNews-articles-container {
-  text-align: center;
- 
-  
+  text-align: center; 
 }
-
 
 h1 {
   padding-top: 10px;
@@ -20,7 +17,6 @@ h1 {
    margin-right: 100px;
    margin-bottom: 20px;
    padding-top: 20px;
-   /* padding-bottom: 10px; */
  }
  
  .category-buttons > button {
@@ -37,9 +33,7 @@ h1 {
    min-width: 75px;
    max-width: 200px;
    transition: background-color 0.3s ease;
- 
-   text-align: center;
-   
+   text-align: center;  
  }
 
  .category-buttons > button:hover {
@@ -68,8 +62,6 @@ h1 {
 
 .image-container {
   position: relative;
-  /* display: block; */
- 
   margin: 0 auto;  
 }
 
@@ -113,8 +105,6 @@ h1 {
   font-size: 5em;
   color: #c15d5f;
   font-style: italic;
-
- 
 }
 
 .loader {

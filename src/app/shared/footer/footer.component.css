@@ -5,7 +5,6 @@ footer {
 footer .container-footer {
     padding-left: 2em;
     padding-top: 1em;
-    /* padding-bottom: 2em; */
     background-color: #292636;
     font-size: 16px;
     color: white;
@@ -20,16 +19,12 @@ footer .container-footer {
     gap: 1em;
     align-items: flex-start;
     z-index: -1;
-
   transform-origin: 0 100%;
-
-    
 }
 footer img {
     max-width: 60px;
     margin-bottom: 1em;
     border-radius: 50%;
-    
 }
 
 footer p:nth-last-child(1) {

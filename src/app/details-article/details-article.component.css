@@ -5,25 +5,20 @@
 }
 
 .content-area {
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
   padding-top: 30px; 
   padding-bottom: 100px;                    
-  /* overflow: auto;
-  */
 }
 
 .the-new-info-section {
   background-color: rgba(154, 147, 172, 0.35);
   width: 70%;
   box-shadow: 0px 0px 32px 0px #2e5c8e, -14px -14px 20px #a0acc0;
-  /* border: solid rgba(95, 3, 3, 0.35); */
   border-radius: 20px;
   text-align: center;
-
 }
 
 h1 {
@@ -39,17 +34,14 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
 }
 
 .created-from-on > p{ 
   font-size: 1.1em;
   line-height: 1.5;
-
 }
 
 .image-and-content {
-
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
@@ -59,8 +51,6 @@ padding-top: 20px;
 padding-bottom: 20px;
 gap: 10px;
 overflow-wrap: anywhere;
-
-
 }
 
 
@@ -107,7 +97,6 @@ flex:  1;
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .comment-section {
@@ -163,9 +152,6 @@ justify-content: space-between;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   overflow: auto;
 }
-
-
-
 
 .all-comments > div > div {
   display: flex;
@@ -237,10 +223,7 @@ justify-content: space-between;
   display: flex;
   justify-content: center;
   width: 100%;
- 
-  /* margin: 0 10px;  */
   transition: background-color 0.3s ease;
-  /* gap: 150px; */
   gap: 10%;
 }
 
@@ -253,13 +236,10 @@ justify-content: space-between;
   cursor: pointer;
   border-radius: 10px;
   max-width: 10%;
-  /* margin-left: 110px;
-  margin-right: 110px; */
   margin-bottom: 15px;
   transition: background-color 0.3s ease;
   flex: 1; 
   text-align: center;
-  
 }
 
 .submit-button {
@@ -276,7 +256,6 @@ justify-content: space-between;
   margin-left: 37%;
   margin-right: 37%;
   max-width: 100%;
-
 }
 
 button:hover {
@@ -292,7 +271,6 @@ button:disabled {
  @media screen and (max-width: 2600px) {
   .article-page  {
     padding-bottom: 200px;
-
   }
 }
 
@@ -300,7 +278,6 @@ button:disabled {
 @media screen and (max-width: 2400px) {
   .article-page {
     padding-bottom: 300px;
-
   }
 }
 
@@ -308,7 +285,6 @@ button:disabled {
 @media screen and (max-width: 2000px) {
   .article-page {
     padding-bottom: 420px;
-
   }
 }
 
@@ -317,7 +293,6 @@ button:disabled {
   .article-page {
     padding-bottom: 520px;
   }
-
 }
 
 /* on 150% */
@@ -339,8 +314,6 @@ button:disabled {
 
   .the-new-info-section {
     width: 80%;
-    
-  
   }
 }
 
@@ -368,8 +341,6 @@ button:disabled {
 
   .the-new-info-section {
     width: 90%;
-    
-  
   }
 }
 
@@ -405,8 +376,6 @@ button:disabled {
     padding: 15px 50px;
     max-width: 30%;
   }
-
-
 
 }
 

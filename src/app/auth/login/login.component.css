@@ -2,8 +2,6 @@
   height: calc(100vh - 120px); 
   display: flex;
   justify-content: center; 
-
-
 }
 
 .login {
@@ -12,15 +10,9 @@
 }
 
 form.login {
-
     margin: 2em auto 0;
     text-align: center;
     font-family: Arial, sans-serif;
-  }
-
-  fieldset {
-    /* position:sticky; */
-    /* z-index: 2; */
   }
   
   form.login fieldset {
@@ -121,11 +113,6 @@ form.login {
     border-left-color: #dc3545;
   }
   
-
-
-
-
-
   /* on 175% */
   @media screen and (max-width: 1400px) { 
     .container {

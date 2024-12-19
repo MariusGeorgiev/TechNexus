@@ -17,7 +17,6 @@ h1 {
    margin-right: 100px;
    margin-bottom: 20px;
    padding-top: 20px;
-   /* padding-bottom: 10px; */
  }
  
  .category-buttons > button {
@@ -34,9 +33,7 @@ h1 {
    min-width: 75px;
    max-width: 200px;
    transition: background-color 0.3s ease;
- 
    text-align: center;
-   
  }
 
  .category-buttons > button:hover {
@@ -63,11 +60,8 @@ h1 {
   border-radius: 20px;
 }
 
-
 .image-container {
   position: relative;
-  /* display: block; */
- 
   margin: 0 auto;  
 }
 
@@ -108,14 +102,11 @@ h1 {
   font-size: 5em;
   color: #c15d5f;
   font-style: italic;
-
- 
 }
 
 .loader {
   height: calc(100vh - 120px);
 }
-
 
 /* on 125% */
 @media screen and (max-width: 1800px) { 

@@ -1,18 +1,10 @@
 .content-of-users {
   height: calc(100vh - 900px);
-
 }
 
 .user-stats-container {
-  
-  /* text-align: center;
-  padding-top: 20px; */
   color: rgb(77, 62, 62);
   margin: 20px auto;
-  /* padding-bottom: 960px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   min-width: 1100px;
   max-width: 1100px;
   max-height: 680px; 
@@ -20,20 +12,17 @@
     position: relative; 
 }
 
-
 h1 {
   padding-top: 30px;
   font-size: 2.5rem;
     text-align: center;
 }
 
-
 table {
   min-width: 1080px;
     max-width: 1080px;
     table-layout: fixed;
   font-size: 1.2rem;
-    /* width: 40%; */
     border-collapse: collapse;
     margin-top: 20px;
   }
@@ -45,7 +34,6 @@ table {
   }
   
   th, td {
-    
     border: 1px solid #550909;
     padding: 8px;
     text-align: center;
@@ -54,7 +42,6 @@ table {
   th {
     background-color: #f4f4f4;
   }
-  
 
   .date-label {
     color: #007bff;
@@ -75,24 +62,8 @@ table {
   .no-users {
     text-align: center;
     font-size: 5em;
-    /* height: calc(100vh - 471px); */
-
   }
 
- /* on 125% */
-  /* @media screen and (max-width: 1800px) { 
-   
-  } */
-
-   /* on 175% */
-   /* @media screen and (max-width: 1400px) { 
-    
-  } */
-
-   /* on 200% */
-   /* @media screen and (max-width: 1200px) { 
-   
-  } */
 
    
 
