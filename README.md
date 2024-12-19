@@ -102,7 +102,7 @@ These configurations ensure the best user experience with optimal UI layout and 
 
 ### **Routing Architecture**
 - **Public Routes**: Home, All News, Details Article , About Us, Contact, Users Stats.
-- **Protected Routes** (AuthGuard): Add New, Edit Article, Profile.
+- **Non-Public Routes**: Add New, Edit Article, Profile.
 
 ---
 
