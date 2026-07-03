@@ -8,7 +8,9 @@ Tech Nexus is a tech news platform that enables users to read, create, edit, and
 ## **Deployment**
 
 The Tech Nexus application is deployed and hosted on **Azure Portal**.  
-You can access the live application here:  
+You can access the live application here:
+**[New Deploy: Tech Nexus Live App](https://technexus-angularproject.web.app)**
+OLD DEPLOY:
 **[Tech Nexus Live Application](https://gray-wave-0bc15fe03.4.azurestaticapps.net)**
 
 ---
